@@ -1,0 +1,362 @@
+"";"spt";"team";"status";"player";"begin";"end";"grade";"location";"opponent";"tG";"tGA";"npG";"pG";"npA";"pA";"ownG";"ylw";"ylwred";"red";"sds"
+"1";10;"1. FC Union Berlin";"start";"Rönnow";0;90;2,5;"home";"SC Freiburg";"0";"0";0;0;0;0;0;0;0;0;TRUE
+"2";10;"1. FC Union Berlin";"start";"Doekhi";0;90;3;"home";"SC Freiburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"3";10;"1. FC Union Berlin";"start";"Vogt";0;90;3,5;"home";"SC Freiburg";"0";"0";0;0;0;0;0;1;0;0;FALSE
+"4";10;"1. FC Union Berlin";"start";"Diogo Leite";0;90;3,5;"home";"SC Freiburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"5";10;"1. FC Union Berlin";"start";"Trimmel";0;90;3,5;"home";"SC Freiburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"6";10;"1. FC Union Berlin";"start";"Kemlein";0;84;3;"home";"SC Freiburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"7";10;"1. FC Union Berlin";"start";"R. Khedira";0;90;4,5;"home";"SC Freiburg";"0";"0";0;0;0;0;0;1;0;0;FALSE
+"8";10;"1. FC Union Berlin";"start";"Skov";0;78;4,5;"home";"SC Freiburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"9";10;"1. FC Union Berlin";"start";"Jeong";0;73;3,5;"home";"SC Freiburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"10";10;"1. FC Union Berlin";"start";"Vertessen";0;73;4;"home";"SC Freiburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"11";10;"1. FC Union Berlin";"start";"Hollerbach";0;72;3,5;"home";"SC Freiburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"12";10;"1. FC Union Berlin";"sub";"Schäfer";72;90;NA;"home";"SC Freiburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"13";10;"1. FC Union Berlin";"sub";"Skarke";73;90;NA;"home";"SC Freiburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"14";10;"1. FC Union Berlin";"sub";"Jordan";73;90;NA;"home";"SC Freiburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"15";10;"1. FC Union Berlin";"sub";"Querfeld";78;90;NA;"home";"SC Freiburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"16";10;"1. FC Union Berlin";"sub";"Haberer";84;90;NA;"home";"SC Freiburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"17";10;"1. FC Union Berlin";"bench";"Schwolow";NA;NA;NA;"home";"SC Freiburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"18";10;"1. FC Union Berlin";"bench";"Roussillon";NA;NA;NA;"home";"SC Freiburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"19";10;"1. FC Union Berlin";"bench";"Benes";NA;NA;NA;"home";"SC Freiburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"20";10;"1. FC Union Berlin";"bench";"Volland";NA;NA;NA;"home";"SC Freiburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"21";10;"SC Freiburg";"start";"Atubolu";0;90;2,5;"away";"1. FC Union Berlin";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"22";10;"SC Freiburg";"start";"Kübler";0;77;3;"away";"1. FC Union Berlin";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"23";10;"SC Freiburg";"start";"Ginter";0;90;2,5;"away";"1. FC Union Berlin";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"24";10;"SC Freiburg";"start";"Lienhart";0;90;3;"away";"1. FC Union Berlin";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"25";10;"SC Freiburg";"start";"Günter";0;90;3,5;"away";"1. FC Union Berlin";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"26";10;"SC Freiburg";"start";"M. Eggestein";0;90;3;"away";"1. FC Union Berlin";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"27";10;"SC Freiburg";"start";"Osterhage";0;77;3,5;"away";"1. FC Union Berlin";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"28";10;"SC Freiburg";"start";"Doan";0;90;3;"away";"1. FC Union Berlin";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"29";10;"SC Freiburg";"start";"Dinkci";0;90;2,5;"away";"1. FC Union Berlin";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"30";10;"SC Freiburg";"start";"Grifo";0;90;4;"away";"1. FC Union Berlin";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"31";10;"SC Freiburg";"start";"Adamu";0;77;4;"away";"1. FC Union Berlin";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"32";10;"SC Freiburg";"sub";"Höler";77;90;NA;"away";"1. FC Union Berlin";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"33";10;"SC Freiburg";"sub";"Höfler";77;90;NA;"away";"1. FC Union Berlin";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"34";10;"SC Freiburg";"sub";"Rosenfelder";77;90;NA;"away";"1. FC Union Berlin";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"35";10;"SC Freiburg";"sub";"Muslija";90;90;NA;"away";"1. FC Union Berlin";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"36";10;"SC Freiburg";"bench";"F. Müller";NA;NA;NA;"away";"1. FC Union Berlin";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"37";10;"SC Freiburg";"bench";"Sildillia";NA;NA;NA;"away";"1. FC Union Berlin";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"38";10;"SC Freiburg";"bench";"Weißhaupt";NA;NA;NA;"away";"1. FC Union Berlin";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"39";10;"SC Freiburg";"bench";"Gregoritsch";NA;NA;NA;"away";"1. FC Union Berlin";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"40";10;"SC Freiburg";"bench";"Philipp";NA;NA;NA;"away";"1. FC Union Berlin";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"41";10;"Werder Bremen";"start";"Zetterer";0;90;3;"home";"Holstein Kiel";"2";"1";0;0;0;0;0;0;0;0;FALSE
+"42";10;"Werder Bremen";"start";"Veljkovic";0;90;3;"home";"Holstein Kiel";"2";"1";0;0;0;0;0;0;0;0;FALSE
+"43";10;"Werder Bremen";"start";"Friedl";0;78;4;"home";"Holstein Kiel";"2";"1";0;0;0;0;0;1;0;0;FALSE
+"44";10;"Werder Bremen";"start";"A. Jung";0;90;3,5;"home";"Holstein Kiel";"2";"1";0;0;0;0;0;0;0;0;FALSE
+"45";10;"Werder Bremen";"start";"Agu";0;90;4;"home";"Holstein Kiel";"2";"1";0;0;0;0;0;0;0;0;FALSE
+"46";10;"Werder Bremen";"start";"Stage";0;46;2;"home";"Holstein Kiel";"2";"1";1;0;0;0;0;1;0;0;TRUE
+"47";10;"Werder Bremen";"start";"Lynen";0;90;3,5;"home";"Holstein Kiel";"2";"1";0;0;0;0;0;1;0;0;FALSE
+"48";10;"Werder Bremen";"start";"Köhn";0;88;4;"home";"Holstein Kiel";"2";"1";0;0;0;0;0;0;0;0;FALSE
+"49";10;"Werder Bremen";"start";"Njinmah";0;66;5;"home";"Holstein Kiel";"2";"1";0;0;0;0;0;0;0;0;FALSE
+"50";10;"Werder Bremen";"start";"Schmid";0;90;3,5;"home";"Holstein Kiel";"2";"1";0;0;0;0;0;0;0;0;FALSE
+"51";10;"Werder Bremen";"start";"Ducksch";0;78;4,5;"home";"Holstein Kiel";"2";"1";0;0;0;0;0;0;0;0;FALSE
+"52";10;"Werder Bremen";"sub";"Bittencourt";46;90;4;"home";"Holstein Kiel";"2";"1";0;0;0;0;0;0;0;0;FALSE
+"53";10;"Werder Bremen";"sub";"Topp";66;90;NA;"home";"Holstein Kiel";"2";"1";0;0;1;0;0;0;0;0;FALSE
+"54";10;"Werder Bremen";"sub";"Stark";78;90;NA;"home";"Holstein Kiel";"2";"1";0;0;0;0;0;0;0;0;FALSE
+"55";10;"Werder Bremen";"sub";"Burke";78;90;NA;"home";"Holstein Kiel";"2";"1";1;0;0;0;0;0;0;0;FALSE
+"56";10;"Werder Bremen";"sub";"Deman";88;90;NA;"home";"Holstein Kiel";"2";"1";0;0;0;0;0;0;0;0;FALSE
+"57";10;"Werder Bremen";"bench";"Backhaus";NA;NA;NA;"home";"Holstein Kiel";"2";"1";0;0;0;0;0;0;0;0;FALSE
+"58";10;"Werder Bremen";"bench";"Malatini";NA;NA;NA;"home";"Holstein Kiel";"2";"1";0;0;0;0;0;0;0;0;FALSE
+"59";10;"Werder Bremen";"bench";"Pieper";NA;NA;NA;"home";"Holstein Kiel";"2";"1";0;0;0;0;0;0;0;0;FALSE
+"60";10;"Werder Bremen";"bench";"Alvero";NA;NA;NA;"home";"Holstein Kiel";"2";"1";0;0;0;0;0;0;0;0;FALSE
+"61";10;"Holstein Kiel";"start";"Weiner";0;90;3;"away";"Werder Bremen";"1";"2";0;0;0;0;0;0;0;0;FALSE
+"62";10;"Holstein Kiel";"start";"Ivezic";0;90;4;"away";"Werder Bremen";"1";"2";0;0;0;0;0;1;0;0;FALSE
+"63";10;"Holstein Kiel";"start";"Erras";0;90;3,5;"away";"Werder Bremen";"1";"2";0;0;0;0;0;0;0;0;FALSE
+"64";10;"Holstein Kiel";"start";"Geschwill";0;90;4;"away";"Werder Bremen";"1";"2";0;0;1;0;0;0;0;0;FALSE
+"65";10;"Holstein Kiel";"start";"T. Becker";0;90;4;"away";"Werder Bremen";"1";"2";0;0;0;0;0;0;0;0;FALSE
+"66";10;"Holstein Kiel";"start";"Gigovic";0;62;4,5;"away";"Werder Bremen";"1";"2";0;0;0;0;0;0;0;0;FALSE
+"67";10;"Holstein Kiel";"start";"Knudsen";0;90;3;"away";"Werder Bremen";"1";"2";0;0;0;0;0;1;0;0;FALSE
+"68";10;"Holstein Kiel";"start";"Remberg";0;90;3,5;"away";"Werder Bremen";"1";"2";0;0;0;0;0;0;0;0;FALSE
+"69";10;"Holstein Kiel";"start";"Puchacz";0;72;3;"away";"Werder Bremen";"1";"2";0;0;0;0;0;0;0;0;FALSE
+"70";10;"Holstein Kiel";"start";"Harres";0;85;2,5;"away";"Werder Bremen";"1";"2";1;0;0;0;0;0;0;0;FALSE
+"71";10;"Holstein Kiel";"start";"Skrzybski";0;72;4;"away";"Werder Bremen";"1";"2";0;0;0;0;0;0;0;0;FALSE
+"72";10;"Holstein Kiel";"sub";"Porath";62;90;3;"away";"Werder Bremen";"1";"2";0;0;0;0;0;0;0;0;FALSE
+"73";10;"Holstein Kiel";"sub";"Machino";72;90;NA;"away";"Werder Bremen";"1";"2";0;0;0;0;0;0;0;0;FALSE
+"74";10;"Holstein Kiel";"sub";"Holtby";72;90;NA;"away";"Werder Bremen";"1";"2";0;0;0;0;0;0;0;0;FALSE
+"75";10;"Holstein Kiel";"sub";"Arp";85;90;NA;"away";"Werder Bremen";"1";"2";0;0;0;0;0;0;0;0;FALSE
+"76";10;"Holstein Kiel";"bench";"Dähne";NA;NA;NA;"away";"Werder Bremen";"1";"2";0;0;0;0;0;0;0;0;FALSE
+"77";10;"Holstein Kiel";"bench";"Javorcek";NA;NA;NA;"away";"Werder Bremen";"1";"2";0;0;0;0;0;0;0;0;FALSE
+"78";10;"Holstein Kiel";"bench";"Komenda";NA;NA;NA;"away";"Werder Bremen";"1";"2";0;0;0;0;0;0;0;0;FALSE
+"79";10;"Holstein Kiel";"bench";"Rosenboom";NA;NA;NA;"away";"Werder Bremen";"1";"2";0;0;0;0;0;0;0;0;FALSE
+"80";10;"Holstein Kiel";"bench";"M. Schulz";NA;NA;NA;"away";"Werder Bremen";"1";"2";0;0;0;0;0;0;0;0;FALSE
+"81";10;"1. FSV Mainz 05";"start";"Zentner";0;90;3;"home";"Borussia Dortmund";"3";"1";0;0;0;0;0;1;0;0;FALSE
+"82";10;"1. FSV Mainz 05";"start";"da Costa";0;80;2,5;"home";"Borussia Dortmund";"3";"1";0;0;1;0;0;0;0;0;FALSE
+"83";10;"1. FSV Mainz 05";"start";"Bell";0;90;3;"home";"Borussia Dortmund";"3";"1";0;0;0;0;0;0;0;0;FALSE
+"84";10;"1. FSV Mainz 05";"start";"Kohr";0;90;3;"home";"Borussia Dortmund";"3";"1";0;0;0;0;0;1;0;0;FALSE
+"85";10;"1. FSV Mainz 05";"start";"Caci";0;90;2,5;"home";"Borussia Dortmund";"3";"1";0;0;1;0;0;0;0;0;FALSE
+"86";10;"1. FSV Mainz 05";"start";"Sano";0;90;2,5;"home";"Borussia Dortmund";"3";"1";0;0;0;0;0;0;0;0;FALSE
+"87";10;"1. FSV Mainz 05";"start";"Amiri";0;90;2,5;"home";"Borussia Dortmund";"3";"1";0;0;0;0;0;0;0;0;FALSE
+"88";10;"1. FSV Mainz 05";"start";"Mwene";0;90;2,5;"home";"Borussia Dortmund";"3";"1";0;0;1;0;0;0;0;0;FALSE
+"89";10;"1. FSV Mainz 05";"start";"Nebel";0;85;2;"home";"Borussia Dortmund";"3";"1";1;0;0;0;0;1;0;0;TRUE
+"90";10;"1. FSV Mainz 05";"start";"J.-S. Lee";0;90;3;"home";"Borussia Dortmund";"3";"1";1;0;0;0;0;0;0;0;FALSE
+"91";10;"1. FSV Mainz 05";"start";"Burkardt";0;90;2,5;"home";"Borussia Dortmund";"3";"1";1;0;0;0;0;0;0;0;FALSE
+"92";10;"1. FSV Mainz 05";"sub";"Widmer";80;90;NA;"home";"Borussia Dortmund";"3";"1";0;0;0;0;0;0;0;0;FALSE
+"93";10;"1. FSV Mainz 05";"sub";"Hong";85;90;NA;"home";"Borussia Dortmund";"3";"1";0;0;0;0;0;0;0;0;FALSE
+"94";10;"1. FSV Mainz 05";"sub";"Onisiwo";90;90;NA;"home";"Borussia Dortmund";"3";"1";0;0;0;0;0;0;0;0;FALSE
+"95";10;"1. FSV Mainz 05";"sub";"Sieb";90;90;NA;"home";"Borussia Dortmund";"3";"1";0;0;0;0;0;0;0;0;FALSE
+"96";10;"1. FSV Mainz 05";"bench";"Rieß";NA;NA;NA;"home";"Borussia Dortmund";"3";"1";0;0;0;0;0;0;0;0;FALSE
+"97";10;"1. FSV Mainz 05";"bench";"Veratschnig";NA;NA;NA;"home";"Borussia Dortmund";"3";"1";0;0;0;0;0;0;0;0;FALSE
+"98";10;"1. FSV Mainz 05";"bench";"Barkok";NA;NA;NA;"home";"Borussia Dortmund";"3";"1";0;0;0;0;0;0;0;0;FALSE
+"99";10;"1. FSV Mainz 05";"bench";"Gleiber";NA;NA;NA;"home";"Borussia Dortmund";"3";"1";0;0;0;0;0;0;0;0;FALSE
+"100";10;"1. FSV Mainz 05";"bench";"Weiper";NA;NA;NA;"home";"Borussia Dortmund";"3";"1";0;0;0;0;0;0;0;0;FALSE
+"101";10;"Borussia Dortmund";"start";"A. Meyer";0;90;2,5;"away";"1. FSV Mainz 05";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"102";10;"Borussia Dortmund";"start";"P. Groß";0;90;4,5;"away";"1. FSV Mainz 05";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"103";10;"Borussia Dortmund";"start";"Can";0;90;6;"away";"1. FSV Mainz 05";"1";"3";0;0;0;0;0;0;0;1;FALSE
+"104";10;"Borussia Dortmund";"start";"N. Schlotterbeck";0;90;3,5;"away";"1. FSV Mainz 05";"1";"3";0;0;0;0;0;1;0;0;FALSE
+"105";10;"Borussia Dortmund";"start";"Ryerson";0;74;5;"away";"1. FSV Mainz 05";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"106";10;"Borussia Dortmund";"start";"F. Nmecha";0;59;5;"away";"1. FSV Mainz 05";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"107";10;"Borussia Dortmund";"start";"Sabitzer";0;90;4,5;"away";"1. FSV Mainz 05";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"108";10;"Borussia Dortmund";"start";"Brandt";0;74;4,5;"away";"1. FSV Mainz 05";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"109";10;"Borussia Dortmund";"start";"Beier";0;59;4,5;"away";"1. FSV Mainz 05";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"110";10;"Borussia Dortmund";"start";"Gittens";0;59;5;"away";"1. FSV Mainz 05";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"111";10;"Borussia Dortmund";"start";"Guirassy";0;90;3,5;"away";"1. FSV Mainz 05";"1";"3";0;1;0;1;0;0;0;0;FALSE
+"112";10;"Borussia Dortmund";"sub";"Lührs";59;90;3,5;"away";"1. FSV Mainz 05";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"113";10;"Borussia Dortmund";"sub";"Malen";59;90;4;"away";"1. FSV Mainz 05";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"114";10;"Borussia Dortmund";"sub";"Yan Couto";59;90;4,5;"away";"1. FSV Mainz 05";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"115";10;"Borussia Dortmund";"sub";"Kabar";74;90;NA;"away";"1. FSV Mainz 05";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"116";10;"Borussia Dortmund";"sub";"Campbell";74;90;NA;"away";"1. FSV Mainz 05";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"117";10;"Borussia Dortmund";"bench";"Lotka";NA;NA;NA;"away";"1. FSV Mainz 05";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"118";10;"Borussia Dortmund";"bench";"Mané";NA;NA;NA;"away";"1. FSV Mainz 05";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"119";10;"Borussia Dortmund";"bench";"Azhil";NA;NA;NA;"away";"1. FSV Mainz 05";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"120";10;"Borussia Dortmund";"bench";"Paulina";NA;NA;NA;"away";"1. FSV Mainz 05";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"121";10;"VfL Bochum";"start";"Drewes";0;90;3;"home";"Bayer 04 Leverkusen";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"122";10;"VfL Bochum";"start";"Oermann";0;90;2;"home";"Bayer 04 Leverkusen";"1";"1";0;0;0;0;0;0;0;0;TRUE
+"123";10;"VfL Bochum";"start";"Medic";0;90;3;"home";"Bayer 04 Leverkusen";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"124";10;"VfL Bochum";"start";"Wittek";0;90;3;"home";"Bayer 04 Leverkusen";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"125";10;"VfL Bochum";"start";"Passlack";0;78;3;"home";"Bayer 04 Leverkusen";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"126";10;"VfL Bochum";"start";"Losilla";0;69;3;"home";"Bayer 04 Leverkusen";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"127";10;"VfL Bochum";"start";"Holtmann";0;69;2;"home";"Bayer 04 Leverkusen";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"128";10;"VfL Bochum";"start";"Bero";0;90;3;"home";"Bayer 04 Leverkusen";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"129";10;"VfL Bochum";"start";"Sissoko";0;90;2,5;"home";"Bayer 04 Leverkusen";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"130";10;"VfL Bochum";"start";"P. Hofmann";0;90;2,5;"home";"Bayer 04 Leverkusen";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"131";10;"VfL Bochum";"start";"Broschinski";0;69;2,5;"home";"Bayer 04 Leverkusen";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"132";10;"VfL Bochum";"sub";"Gamboa";69;90;NA;"home";"Bayer 04 Leverkusen";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"133";10;"VfL Bochum";"sub";"Miyoshi";69;90;NA;"home";"Bayer 04 Leverkusen";"1";"1";1;0;0;0;0;0;0;0;FALSE
+"134";10;"VfL Bochum";"sub";"Daschner";69;90;NA;"home";"Bayer 04 Leverkusen";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"135";10;"VfL Bochum";"sub";"D. de Wit";78;90;NA;"home";"Bayer 04 Leverkusen";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"136";10;"VfL Bochum";"sub";"Ordets";90;90;NA;"home";"Bayer 04 Leverkusen";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"137";10;"VfL Bochum";"bench";"T. Horn";NA;NA;NA;"home";"Bayer 04 Leverkusen";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"138";10;"VfL Bochum";"bench";"Masovic";NA;NA;NA;"home";"Bayer 04 Leverkusen";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"139";10;"VfL Bochum";"bench";"Elezi";NA;NA;NA;"home";"Bayer 04 Leverkusen";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"140";10;"VfL Bochum";"bench";"Pannewig";NA;NA;NA;"home";"Bayer 04 Leverkusen";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"141";10;"Bayer 04 Leverkusen";"start";"Hradecky";0;90;4,5;"away";"VfL Bochum";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"142";10;"Bayer 04 Leverkusen";"start";"Tapsoba";0;90;4,5;"away";"VfL Bochum";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"143";10;"Bayer 04 Leverkusen";"start";"Tah";0;90;4,5;"away";"VfL Bochum";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"144";10;"Bayer 04 Leverkusen";"start";"Hincapie";0;90;3;"away";"VfL Bochum";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"145";10;"Bayer 04 Leverkusen";"start";"Frimpong";0;87;4;"away";"VfL Bochum";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"146";10;"Bayer 04 Leverkusen";"start";"Andrich";0;90;3;"away";"VfL Bochum";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"147";10;"Bayer 04 Leverkusen";"start";"G. Xhaka";0;90;3;"away";"VfL Bochum";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"148";10;"Bayer 04 Leverkusen";"start";"Grimaldo";0;90;4;"away";"VfL Bochum";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"149";10;"Bayer 04 Leverkusen";"start";"Hofmann";0;64;4,5;"away";"VfL Bochum";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"150";10;"Bayer 04 Leverkusen";"start";"Schick";0;77;2;"away";"VfL Bochum";"1";"1";1;0;0;0;0;1;0;0;FALSE
+"151";10;"Bayer 04 Leverkusen";"start";"Wirtz";0;90;2;"away";"VfL Bochum";"1";"1";0;0;1;0;0;0;0;0;FALSE
+"152";10;"Bayer 04 Leverkusen";"sub";"Tella";64;90;4;"away";"VfL Bochum";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"153";10;"Bayer 04 Leverkusen";"sub";"Boniface";77;90;NA;"away";"VfL Bochum";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"154";10;"Bayer 04 Leverkusen";"sub";"Aleix Garcia";87;90;NA;"away";"VfL Bochum";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"155";10;"Bayer 04 Leverkusen";"bench";"Kovar";NA;NA;NA;"away";"VfL Bochum";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"156";10;"Bayer 04 Leverkusen";"bench";"Lomb";NA;NA;NA;"away";"VfL Bochum";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"157";10;"Bayer 04 Leverkusen";"bench";"Arthur";NA;NA;NA;"away";"VfL Bochum";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"158";10;"Bayer 04 Leverkusen";"bench";"Alajbegovic";NA;NA;NA;"away";"VfL Bochum";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"159";10;"Bayer 04 Leverkusen";"bench";"Onyeka";NA;NA;NA;"away";"VfL Bochum";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"160";10;"Bayer 04 Leverkusen";"bench";"Palacios";NA;NA;NA;"away";"VfL Bochum";"1";"1";0;0;0;0;0;0;0;0;FALSE
+"161";10;"FC St. Pauli";"start";"Vasilj";0;90;2,5;"home";"Bayern München";"0";"1";0;0;0;0;0;0;0;0;FALSE
+"162";10;"FC St. Pauli";"start";"Wahl";0;90;3;"home";"Bayern München";"0";"1";0;0;0;0;0;0;0;0;FALSE
+"163";10;"FC St. Pauli";"start";"Smith";0;88;3;"home";"Bayern München";"0";"1";0;0;0;0;0;0;0;0;FALSE
+"164";10;"FC St. Pauli";"start";"Mets";0;90;3;"home";"Bayern München";"0";"1";0;0;0;0;0;0;0;0;FALSE
+"165";10;"FC St. Pauli";"start";"Saliakas";0;90;3,5;"home";"Bayern München";"0";"1";0;0;0;0;0;1;0;0;FALSE
+"166";10;"FC St. Pauli";"start";"Irvine";0;90;3;"home";"Bayern München";"0";"1";0;0;0;0;0;0;0;0;FALSE
+"167";10;"FC St. Pauli";"start";"Boukhalfa";0;89;4,5;"home";"Bayern München";"0";"1";0;0;0;0;0;0;0;0;FALSE
+"168";10;"FC St. Pauli";"start";"La. Ritzka";0;90;4;"home";"Bayern München";"0";"1";0;0;0;0;0;0;0;0;FALSE
+"169";10;"FC St. Pauli";"start";"Guilavogui";0;90;4,5;"home";"Bayern München";"0";"1";0;0;0;0;0;1;0;0;FALSE
+"170";10;"FC St. Pauli";"start";"Afolayan";0;74;4;"home";"Bayern München";"0";"1";0;0;0;0;0;0;0;0;FALSE
+"171";10;"FC St. Pauli";"start";"J. Eggestein";0;80;5;"home";"Bayern München";"0";"1";0;0;0;0;0;0;0;0;FALSE
+"172";10;"FC St. Pauli";"sub";"R. Wagner";74;90;NA;"home";"Bayern München";"0";"1";0;0;0;0;0;0;0;0;FALSE
+"173";10;"FC St. Pauli";"sub";"Albers";80;90;NA;"home";"Bayern München";"0";"1";0;0;0;0;0;0;0;0;FALSE
+"174";10;"FC St. Pauli";"sub";"Dzwigala";88;90;NA;"home";"Bayern München";"0";"1";0;0;0;0;0;0;0;0;FALSE
+"175";10;"FC St. Pauli";"sub";"Sinani";89;90;NA;"home";"Bayern München";"0";"1";0;0;0;0;0;0;0;0;FALSE
+"176";10;"FC St. Pauli";"bench";"Ahlers";NA;NA;NA;"home";"Bayern München";"0";"1";0;0;0;0;0;0;0;0;FALSE
+"177";10;"FC St. Pauli";"bench";"Oelschlägel";NA;NA;NA;"home";"Bayern München";"0";"1";0;0;0;0;0;0;0;0;FALSE
+"178";10;"FC St. Pauli";"bench";"Nemeth";NA;NA;NA;"home";"Bayern München";"0";"1";0;0;0;0;0;0;0;0;FALSE
+"179";10;"FC St. Pauli";"bench";"Stevens";NA;NA;NA;"home";"Bayern München";"0";"1";0;0;0;0;0;0;0;0;FALSE
+"180";10;"FC St. Pauli";"bench";"Ahlstrand";NA;NA;NA;"home";"Bayern München";"0";"1";0;0;0;0;0;0;0;0;FALSE
+"181";10;"FC St. Pauli";"bench";"Schmitz";NA;NA;NA;"home";"Bayern München";"0";"1";0;0;0;0;0;0;0;0;FALSE
+"182";10;"Bayern München";"start";"Neuer";0;90;3;"away";"FC St. Pauli";"1";"0";0;0;0;0;0;0;0;0;FALSE
+"183";10;"Bayern München";"start";"Guerreiro";0;70;3,5;"away";"FC St. Pauli";"1";"0";0;0;0;0;0;0;0;0;FALSE
+"184";10;"Bayern München";"start";"Upamecano";0;90;3;"away";"FC St. Pauli";"1";"0";0;0;0;0;0;0;0;0;FALSE
+"185";10;"Bayern München";"start";"M.-J. Kim";0;90;3;"away";"FC St. Pauli";"1";"0";0;0;0;0;0;1;0;0;FALSE
+"186";10;"Bayern München";"start";"Davies";0;90;3;"away";"FC St. Pauli";"1";"0";0;0;0;0;0;0;0;0;FALSE
+"187";10;"Bayern München";"start";"Kimmich";0;90;3;"away";"FC St. Pauli";"1";"0";0;0;0;0;0;0;0;0;FALSE
+"188";10;"Bayern München";"start";"Goretzka";0;82;4;"away";"FC St. Pauli";"1";"0";0;0;0;0;0;0;0;0;FALSE
+"189";10;"Bayern München";"start";"L. Sané";0;82;3;"away";"FC St. Pauli";"1";"0";0;0;0;0;0;0;0;0;FALSE
+"190";10;"Bayern München";"start";"Musiala";0;90;2;"away";"FC St. Pauli";"1";"0";1;0;0;0;0;0;0;0;TRUE
+"191";10;"Bayern München";"start";"Coman";0;70;4;"away";"FC St. Pauli";"1";"0";0;0;0;0;0;0;0;0;FALSE
+"192";10;"Bayern München";"start";"Kane";0;90;3,5;"away";"FC St. Pauli";"1";"0";0;0;0;0;0;0;0;0;FALSE
+"193";10;"Bayern München";"sub";"Laimer";70;90;NA;"away";"FC St. Pauli";"1";"0";0;0;0;0;0;1;0;0;FALSE
+"194";10;"Bayern München";"sub";"Gnabry";70;90;NA;"away";"FC St. Pauli";"1";"0";0;0;0;0;0;0;0;0;FALSE
+"195";10;"Bayern München";"sub";"Joao Palhinha";82;90;NA;"away";"FC St. Pauli";"1";"0";0;0;0;0;0;0;0;0;FALSE
+"196";10;"Bayern München";"sub";"Olise";82;90;NA;"away";"FC St. Pauli";"1";"0";0;0;0;0;0;0;0;0;FALSE
+"197";10;"Bayern München";"sub";"T. Müller";90;90;NA;"away";"FC St. Pauli";"1";"0";0;0;0;0;0;0;0;0;FALSE
+"198";10;"Bayern München";"bench";"Da. Peretz";NA;NA;NA;"away";"FC St. Pauli";"1";"0";0;0;0;0;0;0;0;0;FALSE
+"199";10;"Bayern München";"bench";"Aznou";NA;NA;NA;"away";"FC St. Pauli";"1";"0";0;0;0;0;0;0;0;0;FALSE
+"200";10;"Bayern München";"bench";"Dier";NA;NA;NA;"away";"FC St. Pauli";"1";"0";0;0;0;0;0;0;0;0;FALSE
+"201";10;"Bayern München";"bench";"Tel";NA;NA;NA;"away";"FC St. Pauli";"1";"0";0;0;0;0;0;0;0;0;FALSE
+"202";10;"RB Leipzig";"start";"Gulacsi";0;90;1,5;"home";"Bor. Mönchengladbach";"0";"0";0;0;0;0;0;0;0;0;TRUE
+"203";10;"RB Leipzig";"start";"Klostermann";0;90;3;"home";"Bor. Mönchengladbach";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"204";10;"RB Leipzig";"start";"Orban";0;90;3,5;"home";"Bor. Mönchengladbach";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"205";10;"RB Leipzig";"start";"Bitshiabu";0;90;3,5;"home";"Bor. Mönchengladbach";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"206";10;"RB Leipzig";"start";"Henrichs";0;67;4;"home";"Bor. Mönchengladbach";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"207";10;"RB Leipzig";"start";"Vermeeren";0;81;2,5;"home";"Bor. Mönchengladbach";"0";"0";0;0;0;0;0;1;0;0;FALSE
+"208";10;"RB Leipzig";"start";"Kampl";0;90;3,5;"home";"Bor. Mönchengladbach";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"209";10;"RB Leipzig";"start";"Nusa";0;90;3;"home";"Bor. Mönchengladbach";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"210";10;"RB Leipzig";"start";"Poulsen";0;67;4;"home";"Bor. Mönchengladbach";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"211";10;"RB Leipzig";"start";"Baumgartner";0;81;3,5;"home";"Bor. Mönchengladbach";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"212";10;"RB Leipzig";"start";"Openda";0;90;4,5;"home";"Bor. Mönchengladbach";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"213";10;"RB Leipzig";"sub";"Sesko";67;90;NA;"home";"Bor. Mönchengladbach";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"214";10;"RB Leipzig";"sub";"A. Haidara";67;90;NA;"home";"Bor. Mönchengladbach";"0";"0";0;0;0;0;0;1;0;0;FALSE
+"215";10;"RB Leipzig";"sub";"Seiwald";81;90;NA;"home";"Bor. Mönchengladbach";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"216";10;"RB Leipzig";"sub";"Ouedraogo";81;90;NA;"home";"Bor. Mönchengladbach";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"217";10;"RB Leipzig";"bench";"Vandevoordt";NA;NA;NA;"home";"Bor. Mönchengladbach";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"218";10;"RB Leipzig";"bench";"Zingerle";NA;NA;NA;"home";"Bor. Mönchengladbach";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"219";10;"RB Leipzig";"bench";"Elmas";NA;NA;NA;"home";"Bor. Mönchengladbach";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"220";10;"RB Leipzig";"bench";"Gebel";NA;NA;NA;"home";"Bor. Mönchengladbach";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"221";10;"RB Leipzig";"bench";"Silva";NA;NA;NA;"home";"Bor. Mönchengladbach";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"222";10;"Bor. Mönchengladbach";"start";"Nicolas";0;90;2;"away";"RB Leipzig";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"223";10;"Bor. Mönchengladbach";"start";"Scally";0;90;4;"away";"RB Leipzig";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"224";10;"Bor. Mönchengladbach";"start";"Friedrich";0;90;2;"away";"RB Leipzig";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"225";10;"Bor. Mönchengladbach";"start";"Itakura";0;90;2,5;"away";"RB Leipzig";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"226";10;"Bor. Mönchengladbach";"start";"Ullrich";0;90;3;"away";"RB Leipzig";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"227";10;"Bor. Mönchengladbach";"start";"Reitz";0;72;2,5;"away";"RB Leipzig";"0";"0";0;0;0;0;0;1;0;0;FALSE
+"228";10;"Bor. Mönchengladbach";"start";"Weigl";0;90;3;"away";"RB Leipzig";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"229";10;"Bor. Mönchengladbach";"start";"Honorat";0;81;3;"away";"RB Leipzig";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"230";10;"Bor. Mönchengladbach";"start";"Hack";0;81;4;"away";"RB Leipzig";"0";"0";0;0;0;0;0;1;0;0;FALSE
+"231";10;"Bor. Mönchengladbach";"start";"Plea";0;72;4;"away";"RB Leipzig";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"232";10;"Bor. Mönchengladbach";"start";"Kleindienst";0;90;3;"away";"RB Leipzig";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"233";10;"Bor. Mönchengladbach";"sub";"Sander";72;90;NA;"away";"RB Leipzig";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"234";10;"Bor. Mönchengladbach";"sub";"Neuhaus";72;90;NA;"away";"RB Leipzig";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"235";10;"Bor. Mönchengladbach";"sub";"Ngoumou";81;90;NA;"away";"RB Leipzig";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"236";10;"Bor. Mönchengladbach";"sub";"Cvancara";81;90;NA;"away";"RB Leipzig";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"237";10;"Bor. Mönchengladbach";"sub";"Chiarodia";90;90;NA;"away";"RB Leipzig";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"238";10;"Bor. Mönchengladbach";"bench";"Sippel";NA;NA;NA;"away";"RB Leipzig";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"239";10;"Bor. Mönchengladbach";"bench";"Lainer";NA;NA;NA;"away";"RB Leipzig";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"240";10;"Bor. Mönchengladbach";"bench";"Stöger";NA;NA;NA;"away";"RB Leipzig";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"241";10;"Bor. Mönchengladbach";"bench";"Ranos";NA;NA;NA;"away";"RB Leipzig";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"242";10;"FC Augsburg";"start";"Labrovic";0;90;3;"home";"TSG Hoffenheim";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"243";10;"FC Augsburg";"start";"Matsima";0;90;3,5;"home";"TSG Hoffenheim";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"244";10;"FC Augsburg";"start";"Gouweleeuw";0;90;3;"home";"TSG Hoffenheim";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"245";10;"FC Augsburg";"start";"K. Schlotterbeck";0;90;3,5;"home";"TSG Hoffenheim";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"246";10;"FC Augsburg";"start";"M. Wolf";0;90;4;"home";"TSG Hoffenheim";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"247";10;"FC Augsburg";"start";"Jakic";0;90;3,5;"home";"TSG Hoffenheim";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"248";10;"FC Augsburg";"start";"Giannoulis";0;90;4;"home";"TSG Hoffenheim";"0";"0";0;0;0;0;0;1;0;0;FALSE
+"249";10;"FC Augsburg";"start";"Onyeka";0;90;3,5;"home";"TSG Hoffenheim";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"250";10;"FC Augsburg";"start";"Maier";0;66;4;"home";"TSG Hoffenheim";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"251";10;"FC Augsburg";"start";"Claude-Maurice";0;75;3;"home";"TSG Hoffenheim";"0";"0";0;0;0;0;0;1;0;0;FALSE
+"252";10;"FC Augsburg";"start";"P. Tietz";0;67;4,5;"home";"TSG Hoffenheim";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"253";10;"FC Augsburg";"sub";"Kömür";66;90;NA;"home";"TSG Hoffenheim";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"254";10;"FC Augsburg";"sub";"Essende";67;90;NA;"home";"TSG Hoffenheim";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"255";10;"FC Augsburg";"sub";"Mounié";75;90;NA;"home";"TSG Hoffenheim";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"256";10;"FC Augsburg";"sub";"Pedersen";90;90;NA;"home";"TSG Hoffenheim";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"257";10;"FC Augsburg";"bench";"Dahmen";NA;NA;NA;"home";"TSG Hoffenheim";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"258";10;"FC Augsburg";"bench";"M. Bauer";NA;NA;NA;"home";"TSG Hoffenheim";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"259";10;"FC Augsburg";"bench";"Koudossou";NA;NA;NA;"home";"TSG Hoffenheim";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"260";10;"FC Augsburg";"bench";"Kücüksahin";NA;NA;NA;"home";"TSG Hoffenheim";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"261";10;"FC Augsburg";"bench";"Kabadayi";NA;NA;NA;"home";"TSG Hoffenheim";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"262";10;"TSG Hoffenheim";"start";"Baumann";0;90;2,5;"away";"FC Augsburg";"0";"0";0;0;0;0;0;0;0;0;TRUE
+"263";10;"TSG Hoffenheim";"start";"Arthur Chaves";0;90;3;"away";"FC Augsburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"264";10;"TSG Hoffenheim";"start";"Stach";0;78;3;"away";"FC Augsburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"265";10;"TSG Hoffenheim";"start";"Akpoguma";0;90;3,5;"away";"FC Augsburg";"0";"0";0;0;0;0;0;1;0;0;FALSE
+"266";10;"TSG Hoffenheim";"start";"Kaderabek";0;78;3,5;"away";"FC Augsburg";"0";"0";0;0;0;0;0;1;0;0;FALSE
+"267";10;"TSG Hoffenheim";"start";"Bischof";0;90;3,5;"away";"FC Augsburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"268";10;"TSG Hoffenheim";"start";"Grillitsch";0;90;3,5;"away";"FC Augsburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"269";10;"TSG Hoffenheim";"start";"D. Jurasek";0;90;4;"away";"FC Augsburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"270";10;"TSG Hoffenheim";"start";"Tohumcu";0;60;4;"away";"FC Augsburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"271";10;"TSG Hoffenheim";"start";"Kramaric";0;90;4;"away";"FC Augsburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"272";10;"TSG Hoffenheim";"start";"Bülter";0;60;4,5;"away";"FC Augsburg";"0";"0";0;0;0;0;0;1;0;0;FALSE
+"273";10;"TSG Hoffenheim";"sub";"Tabakovic";60;90;3,5;"away";"FC Augsburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"274";10;"TSG Hoffenheim";"sub";"Hlozek";60;90;3,5;"away";"FC Augsburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"275";10;"TSG Hoffenheim";"sub";"Gendrey";78;90;NA;"away";"FC Augsburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"276";10;"TSG Hoffenheim";"sub";"Drexler";78;90;NA;"away";"FC Augsburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"277";10;"TSG Hoffenheim";"bench";"Philipp";NA;NA;NA;"away";"FC Augsburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"278";10;"TSG Hoffenheim";"bench";"Geiger";NA;NA;NA;"away";"FC Augsburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"279";10;"TSG Hoffenheim";"bench";"M. Berisha";NA;NA;NA;"away";"FC Augsburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"280";10;"TSG Hoffenheim";"bench";"Bruun Larsen";NA;NA;NA;"away";"FC Augsburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"281";10;"TSG Hoffenheim";"bench";"Moerstedt";NA;NA;NA;"away";"FC Augsburg";"0";"0";0;0;0;0;0;0;0;0;FALSE
+"282";10;"VfB Stuttgart";"start";"Nübel";0;90;3;"home";"Eintracht Frankfurt";"2";"3";0;0;0;0;0;0;0;0;FALSE
+"283";10;"VfB Stuttgart";"start";"Vagnoman";0;90;3;"home";"Eintracht Frankfurt";"2";"3";1;0;0;0;0;0;0;0;FALSE
+"284";10;"VfB Stuttgart";"start";"Rouault";0;75;4,5;"home";"Eintracht Frankfurt";"2";"3";0;0;0;0;0;0;0;0;FALSE
+"285";10;"VfB Stuttgart";"start";"Chabot";0;90;3,5;"home";"Eintracht Frankfurt";"2";"3";0;0;0;0;0;1;0;0;FALSE
+"286";10;"VfB Stuttgart";"start";"Mittelstädt";0;90;4,5;"home";"Eintracht Frankfurt";"2";"3";0;0;0;0;0;0;0;0;FALSE
+"287";10;"VfB Stuttgart";"start";"Karazor";0;61;4;"home";"Eintracht Frankfurt";"2";"3";0;0;0;0;0;0;0;0;FALSE
+"288";10;"VfB Stuttgart";"start";"Stiller";0;90;2;"home";"Eintracht Frankfurt";"2";"3";0;0;1;0;0;0;0;0;FALSE
+"289";10;"VfB Stuttgart";"start";"Rieder";0;61;4,5;"home";"Eintracht Frankfurt";"2";"3";0;0;0;0;0;0;0;0;FALSE
+"290";10;"VfB Stuttgart";"start";"Millot";0;90;3,5;"home";"Eintracht Frankfurt";"2";"3";0;0;0;0;0;1;0;0;FALSE
+"291";10;"VfB Stuttgart";"start";"Führich";0;90;3;"home";"Eintracht Frankfurt";"2";"3";0;0;1;0;0;0;0;0;FALSE
+"292";10;"VfB Stuttgart";"start";"Demirovic";0;75;4,5;"home";"Eintracht Frankfurt";"2";"3";0;0;0;0;0;0;0;0;FALSE
+"293";10;"VfB Stuttgart";"sub";"Touré";61;90;3,5;"home";"Eintracht Frankfurt";"2";"3";0;0;0;0;0;0;0;0;FALSE
+"294";10;"VfB Stuttgart";"sub";"Diehl";61;90;4;"home";"Eintracht Frankfurt";"2";"3";0;0;0;0;0;0;0;0;FALSE
+"295";10;"VfB Stuttgart";"sub";"Hendriks";75;90;NA;"home";"Eintracht Frankfurt";"2";"3";0;0;0;0;0;0;0;0;FALSE
+"296";10;"VfB Stuttgart";"sub";"Woltemade";75;90;NA;"home";"Eintracht Frankfurt";"2";"3";1;0;0;0;0;0;0;0;FALSE
+"297";10;"VfB Stuttgart";"bench";"Bredlow";NA;NA;NA;"home";"Eintracht Frankfurt";"2";"3";0;0;0;0;0;0;0;0;FALSE
+"298";10;"VfB Stuttgart";"bench";"Al-Dakhil";NA;NA;NA;"home";"Eintracht Frankfurt";"2";"3";0;0;0;0;0;0;0;0;FALSE
+"299";10;"VfB Stuttgart";"bench";"Chase";NA;NA;NA;"home";"Eintracht Frankfurt";"2";"3";0;0;0;0;0;0;0;0;FALSE
+"300";10;"VfB Stuttgart";"bench";"P. Stenzel";NA;NA;NA;"home";"Eintracht Frankfurt";"2";"3";0;0;0;0;0;0;0;0;FALSE
+"301";10;"VfB Stuttgart";"bench";"Keitel";NA;NA;NA;"home";"Eintracht Frankfurt";"2";"3";0;0;0;0;0;0;0;0;FALSE
+"302";10;"Eintracht Frankfurt";"start";"Trapp";0;90;2;"away";"VfB Stuttgart";"3";"2";0;0;0;0;0;0;0;0;FALSE
+"303";10;"Eintracht Frankfurt";"start";"Collins";0;78;4;"away";"VfB Stuttgart";"3";"2";0;0;0;0;0;0;0;0;FALSE
+"304";10;"Eintracht Frankfurt";"start";"Tuta";0;90;4;"away";"VfB Stuttgart";"3";"2";0;0;0;0;0;1;0;0;FALSE
+"305";10;"Eintracht Frankfurt";"start";"R. Koch";0;90;3;"away";"VfB Stuttgart";"3";"2";0;0;0;0;0;0;0;0;FALSE
+"306";10;"Eintracht Frankfurt";"start";"Theate";0;90;3,5;"away";"VfB Stuttgart";"3";"2";0;0;0;0;0;0;0;0;FALSE
+"307";10;"Eintracht Frankfurt";"start";"Skhiri";0;90;3,5;"away";"VfB Stuttgart";"3";"2";0;0;0;0;0;0;0;0;FALSE
+"308";10;"Eintracht Frankfurt";"start";"Larsson";0;56;4;"away";"VfB Stuttgart";"3";"2";0;0;0;0;0;0;0;0;FALSE
+"309";10;"Eintracht Frankfurt";"start";"Dina Ebimbe";0;46;4,5;"away";"VfB Stuttgart";"3";"2";0;0;0;0;0;0;0;0;FALSE
+"310";10;"Eintracht Frankfurt";"start";"Brown";0;85;3;"away";"VfB Stuttgart";"3";"2";1;0;0;0;0;0;0;0;FALSE
+"311";10;"Eintracht Frankfurt";"start";"Ekitiké";0;78;2,5;"away";"VfB Stuttgart";"3";"2";1;0;0;0;0;0;0;0;FALSE
+"312";10;"Eintracht Frankfurt";"start";"Marmoush";0;90;1,5;"away";"VfB Stuttgart";"3";"2";1;0;1;0;0;0;0;0;TRUE
+"313";10;"Eintracht Frankfurt";"sub";"Knauff";46;90;2;"away";"VfB Stuttgart";"3";"2";0;0;1;0;0;0;0;0;FALSE
+"314";10;"Eintracht Frankfurt";"sub";"M. Götze";56;90;3,5;"away";"VfB Stuttgart";"3";"2";0;0;0;0;0;0;0;0;FALSE
+"315";10;"Eintracht Frankfurt";"sub";"Bahoya";78;90;NA;"away";"VfB Stuttgart";"3";"2";0;0;0;0;0;0;0;0;FALSE
+"316";10;"Eintracht Frankfurt";"sub";"Chaibi";78;90;NA;"away";"VfB Stuttgart";"3";"2";0;0;0;0;0;1;0;0;FALSE
+"317";10;"Eintracht Frankfurt";"sub";"Matanovic";85;90;NA;"away";"VfB Stuttgart";"3";"2";0;0;0;0;0;0;0;0;FALSE
+"318";10;"Eintracht Frankfurt";"bench";"Kaua Santos";NA;NA;NA;"away";"VfB Stuttgart";"3";"2";0;0;0;0;0;0;0;0;FALSE
+"319";10;"Eintracht Frankfurt";"bench";"Amenda";NA;NA;NA;"away";"VfB Stuttgart";"3";"2";0;0;0;0;0;0;0;0;FALSE
+"320";10;"Eintracht Frankfurt";"bench";"Dahoud";NA;NA;NA;"away";"VfB Stuttgart";"3";"2";0;0;0;0;0;0;0;0;FALSE
+"321";10;"Eintracht Frankfurt";"bench";"Uzun";NA;NA;NA;"away";"VfB Stuttgart";"3";"2";0;0;0;0;0;0;0;0;FALSE
+"322";10;"1. FC Heidenheim";"start";"Ke. Müller";0;90;5;"home";"VfL Wolfsburg";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"323";10;"1. FC Heidenheim";"start";"Traoré";0;90;4;"home";"VfL Wolfsburg";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"324";10;"1. FC Heidenheim";"start";"P. Mainka";0;90;3;"home";"VfL Wolfsburg";"1";"3";0;0;1;0;0;0;0;0;FALSE
+"325";10;"1. FC Heidenheim";"start";"Gimber";0;90;4;"home";"VfL Wolfsburg";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"326";10;"1. FC Heidenheim";"start";"Föhrenbach";0;57;4,5;"home";"VfL Wolfsburg";"1";"3";0;0;0;0;0;1;0;0;FALSE
+"327";10;"1. FC Heidenheim";"start";"Dorsch";0;57;4,5;"home";"VfL Wolfsburg";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"328";10;"1. FC Heidenheim";"start";"Schöppner";0;90;4;"home";"VfL Wolfsburg";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"329";10;"1. FC Heidenheim";"start";"Scienza";0;87;3;"home";"VfL Wolfsburg";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"330";10;"1. FC Heidenheim";"start";"Wanner";0;77;3,5;"home";"VfL Wolfsburg";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"331";10;"1. FC Heidenheim";"start";"Honsak";0;90;4;"home";"VfL Wolfsburg";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"332";10;"1. FC Heidenheim";"start";"Pieringer";0;87;3;"home";"VfL Wolfsburg";"1";"3";1;0;0;0;0;0;0;0;FALSE
+"333";10;"1. FC Heidenheim";"sub";"Schimmer";57;90;4,5;"home";"VfL Wolfsburg";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"334";10;"1. FC Heidenheim";"sub";"Beck";57;90;3;"home";"VfL Wolfsburg";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"335";10;"1. FC Heidenheim";"sub";"M. Breunig";77;90;NA;"home";"VfL Wolfsburg";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"336";10;"1. FC Heidenheim";"sub";"Thomalla";87;90;NA;"home";"VfL Wolfsburg";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"337";10;"1. FC Heidenheim";"sub";"S. Conteh";87;90;NA;"home";"VfL Wolfsburg";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"338";10;"1. FC Heidenheim";"bench";"Eicher";NA;NA;NA;"home";"VfL Wolfsburg";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"339";10;"1. FC Heidenheim";"bench";"Siersleben";NA;NA;NA;"home";"VfL Wolfsburg";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"340";10;"1. FC Heidenheim";"bench";"Kerber";NA;NA;NA;"home";"VfL Wolfsburg";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"341";10;"1. FC Heidenheim";"bench";"Theuerkauf";NA;NA;NA;"home";"VfL Wolfsburg";"1";"3";0;0;0;0;0;0;0;0;FALSE
+"342";10;"VfL Wolfsburg";"start";"Grabara";0;90;2;"away";"1. FC Heidenheim";"3";"1";0;0;0;0;0;1;0;0;TRUE
+"343";10;"VfL Wolfsburg";"start";"Fischer";0;80;3,5;"away";"1. FC Heidenheim";"3";"1";0;0;0;0;0;1;0;0;FALSE
+"344";10;"VfL Wolfsburg";"start";"Vavro";0;90;2,5;"away";"1. FC Heidenheim";"3";"1";0;0;0;0;0;0;0;0;FALSE
+"345";10;"VfL Wolfsburg";"start";"Koulierakis";0;90;3;"away";"1. FC Heidenheim";"3";"1";0;0;0;0;0;0;0;0;FALSE
+"346";10;"VfL Wolfsburg";"start";"Maehle";0;20;NA;"away";"1. FC Heidenheim";"3";"1";0;0;0;0;0;0;0;0;FALSE
+"347";10;"VfL Wolfsburg";"start";"Arnold";0;90;3,5;"away";"1. FC Heidenheim";"3";"1";0;0;0;0;0;0;0;0;FALSE
+"348";10;"VfL Wolfsburg";"start";"B. Dardai";0;80;3;"away";"1. FC Heidenheim";"3";"1";1;0;0;0;0;0;0;0;FALSE
+"349";10;"VfL Wolfsburg";"start";"Gerhardt";0;90;3;"away";"1. FC Heidenheim";"3";"1";1;0;0;0;0;0;0;0;FALSE
+"350";10;"VfL Wolfsburg";"start";"R. Baku";0;90;4,5;"away";"1. FC Heidenheim";"3";"1";0;0;0;0;0;0;0;0;FALSE
+"351";10;"VfL Wolfsburg";"start";"Amoura";0;70;3;"away";"1. FC Heidenheim";"3";"1";0;0;1;0;0;0;0;0;FALSE
+"352";10;"VfL Wolfsburg";"start";"Wimmer";0;71;2,5;"away";"1. FC Heidenheim";"3";"1";0;0;1;0;0;1;0;0;FALSE
+"353";10;"VfL Wolfsburg";"sub";"Zesiger";20;90;4;"away";"1. FC Heidenheim";"3";"1";0;0;0;0;0;1;0;0;FALSE
+"354";10;"VfL Wolfsburg";"sub";"Tiago Tomas";70;90;NA;"away";"1. FC Heidenheim";"3";"1";1;0;0;0;0;1;0;0;FALSE
+"355";10;"VfL Wolfsburg";"sub";"Wind";71;90;NA;"away";"1. FC Heidenheim";"3";"1";0;0;0;0;0;0;0;0;FALSE
+"356";10;"VfL Wolfsburg";"sub";"K. Behrens";80;90;NA;"away";"1. FC Heidenheim";"3";"1";0;0;1;0;0;1;0;0;FALSE
+"357";10;"VfL Wolfsburg";"sub";"Özcan";80;90;NA;"away";"1. FC Heidenheim";"3";"1";0;0;0;0;0;0;0;0;FALSE
+"358";10;"VfL Wolfsburg";"bench";"M. Müller";NA;NA;NA;"away";"1. FC Heidenheim";"3";"1";0;0;0;0;0;0;0;0;FALSE
+"359";10;"VfL Wolfsburg";"bench";"Bornauw";NA;NA;NA;"away";"1. FC Heidenheim";"3";"1";0;0;0;0;0;0;0;0;FALSE
+"360";10;"VfL Wolfsburg";"bench";"Kaminski";NA;NA;NA;"away";"1. FC Heidenheim";"3";"1";0;0;0;0;0;0;0;0;FALSE
+"361";10;"VfL Wolfsburg";"bench";"L. Nmecha";NA;NA;NA;"away";"1. FC Heidenheim";"3";"1";0;0;0;0;0;0;0;0;FALSE

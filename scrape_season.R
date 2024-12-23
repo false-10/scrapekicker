@@ -2,13 +2,9 @@
 library(tidyverse)
 library(rvest)
 
-setwd("C:/kicker/scrape")
-
-
-
 #### Spieltag Überblick ####
 
-for (s in 1:11) {
+for (s in 1:15) {
   
   url_start = paste0("https://www.kicker.de/bundesliga/spieltag/2024-25/", s)
   
@@ -397,27 +393,30 @@ for (s in 1:11) {
   players_final <- as.data.frame(players_final)
   
   saveRDS(players_final, 
-          file = paste0("data/2223/", sprintf("%02d", spt), "_players_", format(Sys.Date(), "%Y-%m-%d"), ".RDS"))
+          file = paste0("data/2425/", sprintf("%02d", spt), "_players_", format(Sys.Date(), "%Y-%m-%d"), ".RDS"))
   
   write.csv2(players_final, 
-             file = paste0("data/2223/", sprintf("%02d", spt), "_players_", format(Sys.Date(), "%Y-%m-%d"), ".csv"),
+             file = paste0("data/2425/", sprintf("%02d", spt), "_players_", format(Sys.Date(), "%Y-%m-%d"), ".csv"),
              fileEncoding = "UTF-8")
   
   if (spt == 1){
     saveRDS(players_final, 
-            file = paste0("data/2223/players_full.RDS"))
+            file = paste0("data/2425/players_full.RDS"))
   } else {
     
-    players_previous <- readRDS("data/2223/players_full.RDS")
+    players_previous <- readRDS("data/2425/players_full.RDS")
     
     players_final <- rbind(players_previous, players_final)
     
     saveRDS(players_final, 
-            file = paste0("data/2223/players_full.RDS"))
+            file = paste0("data/2425/players_full.RDS"))
     
     write.csv2(players_final, 
-               file = paste0("data/2223/players_full.csv"),
+               file = paste0("data/2425/players_full.csv"),
                fileEncoding = "UTF-8")
   }
   
 }
+
+
+
