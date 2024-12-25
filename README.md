@@ -15,7 +15,10 @@ Zuletzt werden die Datensätze zu Spieltagen und Interactive zusammengefügt. Da
 
 ## Hauptdatensatz
 
-Der fertige Hauptdatensatz heißt "players" und liegt in drei Versionen vor: als .csv, .xlsx und RDS-Datei.
+Der fertige Hauptdatensatz heißt "players" und liegt in drei Versionen vor: 
+- als .csv-Datei: https://github.com/false-10/scrapekicker/blob/main/data/2425/players.csv
+- als .xlsx-Datei: https://github.com/false-10/scrapekicker/blob/main/data/2425/players.xlsx
+- als .RDS-Datei: https://github.com/false-10/scrapekicker/blob/main/data/2425/players.RDS
 
 Jede Beobachtung/Reihe entspricht den Datenpunkten eines Spielers in einem Spiel. 
 Es gibt für jedes Spiel jeweils eine Beobachtung/Reihe pro Spieler, der sich mindestens im Kader befindet.
