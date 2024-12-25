@@ -20,13 +20,13 @@ Der fertige Hauptdatensatz heißt "players" und liegt in drei Versionen vor:
 - als .xlsx-Datei: https://github.com/false-10/scrapekicker/blob/main/data/2425/players.xlsx
 - als .RDS-Datei: https://github.com/false-10/scrapekicker/blob/main/data/2425/players.RDS
 
-Jede Beobachtung/Reihe entspricht den Datenpunkten eines Spielers in einem Spiel.  
+Jede Beobachtung/Zeile entspricht den Datenpunkten eines Spielers in einem Spiel.  
 Es gibt für jedes Spiel jeweils eine Beobachtung/Reihe pro Spieler, der sich mindestens im Kader befindet.
 
 Folgende Informationen sind darin enthalten:
 
 Basisinformationen zum Spiel (Spieltag, Vereine, Ergebnis, Austragungsort).  
-Einsatzinformationen zum Spieler (Startelf/Einwechslung/Bankplatz, Einsatzzeiten, Tore, Vorlagen, Karten).
+Einsatzinformationen zum Spieler (Startelf/Einwechslung/Bankplatz, Einsatzzeiten, Tore, Vorlagen, Karten).  
 kicker-spezifische Informationen (Note, Spieler des Spiels).  
 Managerspiel-spezifische Informationen (Positionszuteilung, Marktwert; Punkte für Tore, Vorlagen, Note usw).
 
