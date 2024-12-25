@@ -6,11 +6,11 @@ Für jedes Spiel wird gespeichert, welche Spieler eingesetzt wurden oder auf der
 
 ## Skriptdateien
 
-In "scrape_season.R" werden für jeden Spieltag der Saison 24/25 alle relevanten Daten aus den jeweiligen Spielseiten des kickers gezogen und im Ordner "data" gespeichert. 
+In "scrape_season.R" werden für jeden Spieltag der Saison 24/25 alle relevanten Daten aus den jeweiligen Spielseiten des kickers gezogen und im Ordner "data" gespeichert.  
 Zusätzlich wird ein Datensatz für die gesamte Saison namens "players_full" gespeichert.
 
-In "enhance_interactive.R" werden die speziell zum Managerspiel Interactive gehörenden Informationen (insbesondere Positionszuteilung und Preis der einzelnen Spieler) im Datensatz "players_interactive.xlsx" gespeichert.
-Einzelne Fehler (z.B. bei gleichen Nachnamen) wurden manuell ausgebessert, der verbesserte Datensatz unter "players_interactive_edit.xlsx" gespeichert.
+In "enhance_interactive.R" werden die speziell zum Managerspiel Interactive gehörenden Informationen (insbesondere Positionszuteilung und Preis der einzelnen Spieler) im Datensatz "players_interactive.xlsx" gespeichert.  
+Einzelne Fehler (z.B. bei gleichen Nachnamen) wurden manuell ausgebessert, der verbesserte Datensatz unter "players_interactive_edit.xlsx" gespeichert.  
 Zuletzt werden die Datensätze zu Spieltagen und Interactive zusammengefügt. Danach werden für jeden Spieler seine erzielten Punkte pro Spiel berechnet und zuletzt mit der vom kicker berechneten Punktzahl verglichen, um Unterschiede festzustellen und zu verbessern.
 
 ## Hauptdatensatz
@@ -20,14 +20,14 @@ Der fertige Hauptdatensatz heißt "players" und liegt in drei Versionen vor:
 - als .xlsx-Datei: https://github.com/false-10/scrapekicker/blob/main/data/2425/players.xlsx
 - als .RDS-Datei: https://github.com/false-10/scrapekicker/blob/main/data/2425/players.RDS
 
-Jede Beobachtung/Reihe entspricht den Datenpunkten eines Spielers in einem Spiel. 
+Jede Beobachtung/Reihe entspricht den Datenpunkten eines Spielers in einem Spiel.  
 Es gibt für jedes Spiel jeweils eine Beobachtung/Reihe pro Spieler, der sich mindestens im Kader befindet.
 
 Folgende Informationen sind darin enthalten:
 
-Basisinformationen zum Spiel (Spieltag, Vereine, Ergebnis, Austragungsort).
+Basisinformationen zum Spiel (Spieltag, Vereine, Ergebnis, Austragungsort).  
 Einsatzinformationen zum Spieler (Startelf/Einwechslung/Bankplatz, Einsatzzeiten, Tore, Vorlagen, Karten).
-kicker-spezifische Informationen (Note, Spieler des Spiels).
+kicker-spezifische Informationen (Note, Spieler des Spiels).  
 Managerspiel-spezifische Informationen (Positionszuteilung, Marktwert; Punkte für Tore, Vorlagen, Note usw).
 
 Im Detail:
