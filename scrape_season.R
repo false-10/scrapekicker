@@ -2,9 +2,9 @@
 library(tidyverse)
 library(rvest)
 
-#### Spieltag Überblick ####
+#### jeden Spieltag der Saison scrapen und als Tabelle speichern ####
 
-for (s in 1:15) {
+for (s in 1:34) {
   
   url_start = paste0("https://www.kicker.de/bundesliga/spieltag/2024-25/", s)
   

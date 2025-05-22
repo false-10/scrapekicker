@@ -2,13 +2,10 @@
 library(tidyverse)
 library(rvest)
 
-setwd("C:/kicker/scrape")
+#### aktuellen Spieltag scrapen & speichern und vollen Datensatz ergänzen ####
 
 
-###
-
-
-url_start = "https://www.kicker.de/bundesliga/spieltag/2023-24/34"
+url_start = "https://www.kicker.de/Bundesliga/spieltag/2024-25/"
 
 page_start = read_html(url_start)
 
