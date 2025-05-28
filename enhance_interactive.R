@@ -64,20 +64,13 @@ season <- players %>% group_by(player, team) %>% reframe(sum(points), mean(Punkt
 
 ### Überprüfen auf Fehler ###
 
-# season <- season %>% drop_na()
-# 
-# identical(season$`sum(points)`, season$`mean(Punkte)`)
-# 
-# season[season$`sum(points)` != season$`mean(Punkte)`,]
+season <- season %>% drop_na()
 
-### Fehler bei Kimmich bereinigen ###
+identical(season$`sum(points)`, season$`mean(Punkte)`)
 
-players <- players %>% mutate(sds_pts = case_when(player == "Kimmich" & spt == 5 ~ 0,
-                                                  .default = sds_pts),
-                              points = case_when(player == "Kimmich" & spt == 5 ~ 10,
-                                                  .default = points))
+season[season$`sum(points)` != season$`mean(Punkte)`,] %>% view()
 
-### Datensatz speicher ###
+### Datensatz speichern ###
 
 write.xlsx(players, "data/2425/players.xlsx")
 write.csv(players, "data/2425/players.csv")
