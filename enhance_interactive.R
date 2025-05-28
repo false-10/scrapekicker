@@ -3,18 +3,29 @@ library(tidyverse)
 library(xlsx)
 
 
+### fehlerhafte SDS korrigieren
+
+players_full <- readRDS("data/2425/players_full.RDS")
+
+players_full <- players_full %>% mutate(sds = case_when(spt == 5 & player == "Kimmich" ~ FALSE,
+                                                        spt == 16 & player == "Xavi" ~ TRUE,
+                                                        spt == 26 & player == "Kaua Santos" ~ TRUE,
+                                                        spt == 27 & player == "Aleix Garcia" ~ TRUE,
+                                                        spt == 29 & player == "Xavi" ~ TRUE,
+                                                        .default = sds))
+
 ### Datensatz mit Interactive-Punkten ###
 
-interactive <- read.csv("data/2425/15_interactive.csv", sep = ";")
+interactive <- read.csv("data/2425/34_interactive.csv", sep = ";")
 
 names(interactive) <- c("kID", "Vorname", "Nachname", "Name_kurz", "Name_lang", "Verein", 
                         "Position", "MW", "Punkte", "Note")
 
 interactive <- interactive %>% mutate(MW = MW/10e5)
 
-### Interactive-Infos ergänzen ###
+interactive <- interactive %>% filter(MW != 999)
 
-players_full <- readRDS("data/2425/players_full.RDS")
+### Interactive-Infos ergänzen ###
 
 players_names <- players_full %>% select(player, team) %>% unique()
 
