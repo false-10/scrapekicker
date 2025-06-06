@@ -32,12 +32,12 @@ players_names <- players_full %>% select(player, team) %>% unique()
 players_interactive <- players_names %>% full_join(interactive, by = join_by(player == Name_kurz), 
                                                    relationship = "many-to-many") %>% arrange(player)
 
-write.xlsx(players_interactive, "data/2425/players_interactive.xlsx")
+# write.xlsx(players_interactive, "data/2425/players_interactive.xlsx")
 
 players_interactive_edit <- read.xlsx("data/2425/players_interactive_edit.xlsx", sheetIndex = 1)
 
 players_interactive_edit <- players_interactive_edit %>% 
-  select(player, team, Position, kID, Position, MW, Punkte, Note)
+  select(player, team, Position, kID, Vorname, Nachname, Name_lang, MW, Punkte, Note)
 
 
 players <- players_full %>% left_join(players_interactive_edit, by = c("player", "team"))
