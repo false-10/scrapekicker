@@ -60,18 +60,29 @@ players <- players %>%
          points = status_pts + ifelse(is.na(grade_pts), 0, grade_pts) + 
            npG_pts + pG_pts + npA_pts + pA_pts + ylwred_pts + red_pts + sds_pts + clean_sheet_pts)
 
-season <- players %>% group_by(player, team) %>% reframe(sum(points), mean(Punkte))
 
 ### Überprüfen auf Fehler ###
 
-season <- season %>% drop_na()
+points_check <- players %>% group_by(player, team) %>% reframe(sum(points), mean(Punkte))
 
-identical(season$`sum(points)`, season$`mean(Punkte)`)
+points_check <- points_check %>% drop_na()
 
-season[season$`sum(points)` != season$`mean(Punkte)`,] %>% view()
+identical(points_check$`sum(points)`, points_check$`mean(Punkte)`)
+
+points_check[points_check$`sum(points)` != points_check$`mean(Punkte)`,] %>% view()
 
 ### Datensatz speichern ###
 
 write.xlsx(players, "data/2425/players.xlsx")
 write.csv(players, "data/2425/players.csv")
 saveRDS(players, "data/2425/players.RDS")
+
+
+#### Spieler nach Saison ####
+
+players %>% group_by(player, team) %>% 
+  summarise(starts = sum(status == "start"), starts_graded = sum(status == "start" & !is.na(grade)),
+            subs = sum(status == "sub"), subs_graded = sum(status == "sub" & !is.na(grade)),
+            benchs = sum(status == "bench"),
+            mins = sum(end - begin, na.rm = TRUE), mins_mean = mean(end - begin, na.rm = TRUE), 
+            mins_mean_start = mean((end - begin)[status == "start"], na.rm = TRUE))
