@@ -213,11 +213,11 @@ for (s in 1:34) {
       }
     }
     
-    players_home$tG <- team_goals_home
-    players_home$tGA <- team_goals_away
+    players_home$tG <- as.numeric(team_goals_home)
+    players_home$tGA <- as.numeric(team_goals_away)
     
-    players_away$tG <- team_goals_away
-    players_away$tGA <- team_goals_home
+    players_away$tG <- as.numeric(team_goals_away)
+    players_away$tGA <- as.numeric(team_goals_home)
     
     players <- rbind(players_home, players_away)
     
