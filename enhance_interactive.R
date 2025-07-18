@@ -77,12 +77,30 @@ write.xlsx(players, "data/2425/players.xlsx")
 write.csv(players, "data/2425/players.csv")
 saveRDS(players, "data/2425/players.RDS")
 
+#### Spielerwerte für die komplette Saison ####
 
-#### Spieler nach Saison ####
+players <- readRDS("data/2425/players.RDS")
 
-players %>% group_by(player, team) %>% 
-  summarise(starts = sum(status == "start"), starts_graded = sum(status == "start" & !is.na(grade)),
-            subs = sum(status == "sub"), subs_graded = sum(status == "sub" & !is.na(grade)),
-            benchs = sum(status == "bench"),
-            mins = sum(end - begin, na.rm = TRUE), mins_mean = mean(end - begin, na.rm = TRUE), 
-            mins_mean_start = mean((end - begin)[status == "start"], na.rm = TRUE))
+players_ssn <- players %>% group_by(player, team, Position, MW) %>% 
+    summarise(starts = sum(status == "start"), starts_graded = sum(status == "start" & !is.na(grade)),
+              subs = sum(status == "sub"), subs_graded = sum(status == "sub" & !is.na(grade)),
+              benchs = sum(status == "bench"),
+              mins = sum(end - begin, na.rm = TRUE), 
+              mins_mean = round(mean(end - begin, na.rm = TRUE)), 
+              grade_mean = sprintf("%.2f", mean(grade, na.rm = TRUE)),
+              tG = sum(tG), tGA = sum(tGA), 
+              npG = sum(npG), pG = sum(pG), npA = sum(npA), pA = sum(pA),
+              ownG = sum(ownG), ylw = sum(ylw), ylwred = sum(ylwred), red = sum(red),
+              sds = sum(sds),
+              status_pts = sum(status_pts), grade_pts = sum(grade_pts),
+              npG_pts = sum(npG_pts), pG_pts = sum(pG_pts), 
+              npA_pts = sum(npA_pts), pA_pts = sum(pA_pts),
+              ylwred_pts = sum(ylwred_pts), red_pts = sum(red_pts),
+              sds_pts = sum(sds_pts), clean_sheet_pts = sum(clean_sheet_pts), points = sum(points))
+
+saveRDS(players_ssn, "data/2425/players_ssn.RDS")
+
+str(players)
+
+mins_start_mean = round(mean((end - begin)[status == "start"], na.rm = TRUE)),
+grade_start_mean = sprintf("%.2f", mean(grade[status == "start"], na.rm = TRUE))
