@@ -106,6 +106,8 @@ players_ssn <- players %>% group_by(player, team, Position, MW) %>%
               sds_pts = sum(sds_pts), clean_sheet_pts = sum(clean_sheet_pts), points = sum(points))
 
 saveRDS(players_ssn, "data/2425/players_ssn.RDS")
+write.xlsx(players, "data/2425/players_ssn.xlsx")
+write.csv(players, "data/2425/players_ssn.csv")
 
 
 players_start_ssn <- players %>% filter(status == "start" & !is.na(grade)) %>% 
