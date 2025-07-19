@@ -60,6 +60,13 @@ players <- players %>%
          points = status_pts + ifelse(is.na(grade_pts), 0, grade_pts) + 
            npG_pts + pG_pts + npA_pts + pA_pts + ylwred_pts + red_pts + sds_pts + clean_sheet_pts)
 
+players <- players %>% 
+  mutate()
+
+players$Position <- fct_recode(players$Position, Sturm = "FORWARD", Mittelfeld = "MIDFIELDER", 
+                               Abwehr = "DEFENDER", Tor = "GOALKEEPER")
+
+players$Position <- factor(players$Position, levels = c("Sturm", "Mittelfeld", "Abwehr", "Tor"))
 
 ### Überprüfen auf Fehler ###
 
@@ -100,7 +107,7 @@ players_ssn <- players %>% group_by(player, team, Position, MW) %>%
 
 saveRDS(players_ssn, "data/2425/players_ssn.RDS")
 
-str(players)
+
 
 mins_start_mean = round(mean((end - begin)[status == "start"], na.rm = TRUE)),
 grade_start_mean = sprintf("%.2f", mean(grade[status == "start"], na.rm = TRUE))
