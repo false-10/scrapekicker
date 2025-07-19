@@ -99,7 +99,7 @@ players_ssn <- players %>% group_by(player, team, Position, MW) %>%
               npG = sum(npG), pG = sum(pG), npA = sum(npA), pA = sum(pA),
               ownG = sum(ownG), ylw = sum(ylw), ylwred = sum(ylwred), red = sum(red),
               sds = sum(sds),
-              status_pts = sum(status_pts), grade_pts = sum(grade_pts),
+              status_pts = sum(status_pts), grade_pts = sum(grade_pts, na.rm = TRUE),
               npG_pts = sum(npG_pts), pG_pts = sum(pG_pts), 
               npA_pts = sum(npA_pts), pA_pts = sum(pA_pts),
               ylwred_pts = sum(ylwred_pts), red_pts = sum(red_pts),
