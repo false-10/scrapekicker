@@ -60,13 +60,12 @@ players <- players %>%
          points = status_pts + ifelse(is.na(grade_pts), 0, grade_pts) + 
            npG_pts + pG_pts + npA_pts + pA_pts + ylwred_pts + red_pts + sds_pts + clean_sheet_pts)
 
-players <- players %>% 
-  mutate()
-
 players$Position <- fct_recode(players$Position, Sturm = "FORWARD", Mittelfeld = "MIDFIELDER", 
                                Abwehr = "DEFENDER", Tor = "GOALKEEPER")
 
 players$Position <- factor(players$Position, levels = c("Sturm", "Mittelfeld", "Abwehr", "Tor"))
+
+players <- players %>% mutate(name_long = ifelse(is.na(Name_lang), player, Name_lang))
 
 ### Überprüfen auf Fehler ###
 
@@ -88,7 +87,7 @@ saveRDS(players, "data/2425/players.RDS")
 
 players <- readRDS("data/2425/players.RDS")
 
-players_ssn <- players %>% group_by(player, team, Position, MW) %>% 
+players_ssn <- players %>% group_by(player, team, Position, MW, name_long) %>% 
     summarise(starts = sum(status == "start"), starts_graded = sum(status == "start" & !is.na(grade)),
               subs = sum(status == "sub"), subs_graded = sum(status == "sub" & !is.na(grade)),
               benchs = sum(status == "bench"),
@@ -103,10 +102,12 @@ players_ssn <- players %>% group_by(player, team, Position, MW) %>%
               npG_pts = sum(npG_pts), pG_pts = sum(pG_pts), 
               npA_pts = sum(npA_pts), pA_pts = sum(pA_pts),
               ylwred_pts = sum(ylwred_pts), red_pts = sum(red_pts),
-              sds_pts = sum(sds_pts), clean_sheet_pts = sum(clean_sheet_pts), points = sum(points))
+              sds_pts = sum(sds_pts), clean_sheet_pts = sum(clean_sheet_pts), 
+              points = sum(points)) %>% 
+  ungroup()
 
 saveRDS(players_ssn, "data/2425/players_ssn.RDS")
-write.xlsx(as.data.frame(players_ssn), "data/2425/players_ssn.xlsx")
+write.xlsx(players_ssn, "data/2425/players_ssn.xlsx")
 write.csv(players_ssn, "data/2425/players_ssn.csv")
 
 
