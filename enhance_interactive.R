@@ -202,8 +202,17 @@ players_ssn <- players_ssn %>%
          clean_sheet_pts, points,
          name_fbref = Player, url_fbref = Url)
 
+players_ssn <- players_ssn %>% 
+  mutate_all(~ifelse(is.nan(.) | grepl("NaN", .) | grepl("NA", .), NA, .))
+
+players_ssn$type <- fct_recode(factor(players_ssn$type), 
+                               "Sturm" = "1", "Mittelfeld" = "2", "Abwehr" = "3", "Tor" = "4")
+
+players_ssn <- players_ssn %>% as.data.frame()
+
 saveRDS(players_ssn, "data/2425/players_ssn.RDS")
-write.xlsx(players_ssn, "data/2425/players_ssn.xlsx")
+write.xlsx(players_ssn, "data/2425/players_ssn.xlsx",
+           row.names = FALSE, showNA = FALSE)
 write.csv(players_ssn, "data/2425/players_ssn.csv")
 
 
