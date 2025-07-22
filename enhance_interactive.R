@@ -96,7 +96,7 @@ players_ssn <- players %>% group_by(player, team, Position, MW, name_long) %>%
               benchs = sum(status == "bench"),
               mins = sum(end - begin, na.rm = TRUE), 
               mins_mean = round(mean(end - begin, na.rm = TRUE)), 
-              grade_mean = sprintf("%.2f", mean(grade, na.rm = TRUE)),
+              grade_mean = round(mean(grade, na.rm = TRUE), 2),
               tG = sum(tG), tGA = sum(tGA), 
               npG = sum(npG), pG = sum(pG), npA = sum(npA), pA = sum(pA),
               ownG = sum(ownG), ylw = sum(ylw), ylwred = sum(ylwred), red = sum(red),
@@ -177,15 +177,15 @@ players_ssn <- players_ssn %>%
   full_join(fbref_players, by = c(Player_latin = "Player_latin", team = "Squad"), keep = FALSE)
 
 players_ssn <- players_ssn %>% 
-  mutate(npG_perf = npG.x - npxG, npG_perf_rel = sprintf("%.2f", npG.x/npxG),
+  mutate(npG_perf = npG.x - npxG, npG_perf_rel = round(npG.x/npxG, 2),
          p_miss = PKatt - pG,
-         A_perf = A - xAG, A_perf_rel = sprintf("%.2f", A_perf_rel = A/xAG),
+         A_perf = A - xAG, A_perf_rel = round(A/xAG, 2),
          npG_A = npG.x + A, npxG_xAG, npG_A_perf = npG_A - npxG_xAG, 
-         npG_A_perf_rel = sprintf("%.2f", npG_A/npxG_xAG),
-         npG_perf_p90 = npG_p90 - npxG_p90, npG_perf_rel_p90 = sprintf("%.2f", npG_p90/npxG_p90),
-         A_perf_p90 = A_p90 - xAG_p90, A_perf_rel_p90 = sprintf("%.2f", A_p90/xAG_p90),
+         npG_A_perf_rel = round(npG_A/npxG_xAG, 2),
+         npG_perf_p90 = npG_p90 - npxG_p90, npG_perf_rel_p90 = round(npG_p90/npxG_p90, 2),
+         A_perf_p90 = A_p90 - xAG_p90, A_perf_rel_p90 = round(A_p90/xAG_p90, 2),
          npG_A_perf_p90 = npG_A_p90 - npxG_xAG_p90, 
-         npG_A_perf_rel_p90 = sprintf("%.2f", npG_A_p90/npxG_xAG_p90)) %>% 
+         npG_A_perf_rel_p90 = round(npG_A_p90/npxG_xAG_p90, 2)) %>% 
   select(player, team, type = Position, MW,
          nation = Nation, position = Pos, age = Age, born = Born,
          starts, starts_graded, subs, subs_graded, benchs, mins, mins_mean, nineties = Nineties,
@@ -208,7 +208,9 @@ players_ssn <- players_ssn %>%
 players_ssn$type <- fct_recode(factor(players_ssn$type), 
                                "Sturm" = "1", "Mittelfeld" = "2", "Abwehr" = "3", "Tor" = "4")
 
-players_ssn <- players_ssn %>% as.data.frame()
+players_ssn <- players_ssn %>% 
+  mutate(age = as.numeric(age)) %>% 
+  as.data.frame()
 
 saveRDS(players_ssn, "data/2425/players_ssn.RDS")
 write.xlsx(players_ssn, "data/2425/players_ssn.xlsx",
@@ -226,7 +228,7 @@ players_start_ssn <- players %>% filter(status == "start" & !is.na(grade)) %>%
             benchs = sum(status == "bench"),
             mins = sum(end - begin, na.rm = TRUE), 
             mins_mean = round(mean(end - begin, na.rm = TRUE)), 
-            grade_mean = sprintf("%.2f", mean(grade, na.rm = TRUE)),
+            grade_mean = round(mean(grade, na.rm = TRUE), 2),
             tG = sum(tG), tGA = sum(tGA), 
             npG = sum(npG), pG = sum(pG), npA = sum(npA), pA = sum(pA),
             ownG = sum(ownG), ylw = sum(ylw), ylwred = sum(ylwred), red = sum(red),
@@ -244,7 +246,7 @@ players_sub_ssn <- players %>% filter(status == "sub") %>%
             benchs = sum(status == "bench"),
             mins = sum(end - begin, na.rm = TRUE), 
             mins_mean = round(mean(end - begin, na.rm = TRUE)), 
-            grade_mean = sprintf("%.2f", mean(grade, na.rm = TRUE)),
+            grade_mean = round(mean(grade, na.rm = TRUE), 2),
             tG = sum(tG), tGA = sum(tGA), 
             npG = sum(npG), pG = sum(pG), npA = sum(npA), pA = sum(pA),
             ownG = sum(ownG), ylw = sum(ylw), ylwred = sum(ylwred), red = sum(red),
