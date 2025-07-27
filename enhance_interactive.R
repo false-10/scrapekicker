@@ -256,3 +256,48 @@ players_sub_ssn <- players %>% filter(status == "sub") %>%
             npA_pts = sum(npA_pts), pA_pts = sum(pA_pts),
             ylwred_pts = sum(ylwred_pts), red_pts = sum(red_pts),
             sds_pts = sum(sds_pts), clean_sheet_pts = sum(clean_sheet_pts), points = sum(points))
+
+
+
+####################################################################################################
+########################### Teamwerte ##############################################################
+####################################################################################################
+
+
+###### Teamdaten aus fbref importieren ######
+
+fbref_teams <- 
+  fb_big5_advanced_season_stats(season_end_year = 2025, stat_type = "standard", 
+                                team_or_player = "team") %>%
+  filter(Comp == "Bundesliga")
+
+fbref_teams <- fbref_teams %>% 
+  select(team = Squad, type = Team_or_Opponent, num_players = Num_Players, age = Age, poss = Poss, 
+         G = Gls, A = Ast, npG = G_minus_PK, pG = PK, PKatt, CrdY, CrdR, 
+         xG = xG_Expected, npxG = npxG_Expected, xAG = xAG_Expected, G_p90 = Gls_Per, 
+         A_p90 = Ast_Per, npG_p90 = G_minus_PK_Per, xG_p90 = xG_Per, xAG_p90 = xAG_Per,
+         npxG_p90 = npxG_Per, url_fbref = Url)
+
+fbref_teams <- fbref_teams %>% 
+  pivot_wider(names_from = type, values_from = -c(team, type, num_players))
+
+fbref_teams <- fbref_teams %>%
+  mutate(npG_diff = npG_team - npG_opponent, npxG_diff = npxG_team - npxG_opponent,
+         npG_diff_p90 = npG_p90_team - npG_p90_opponent, 
+         npxG_diff_p90 = npxG_p90_team - npxG_p90_opponent)
+
+fbref_teams <- fbref_teams %>% 
+  mutate(team = fct_recode(team, "FC Augsburg" = "Augsburg", "Bayern München" = "Bayern Munich",
+                           "VfL Bochum" = "Bochum", "Borussia Dortmund" = "Dortmund",
+                           "Bor. Mönchengladbach" = "Gladbach", "1. FC Heidenheim" = "Heidenheim",
+                           "TSG Hoffenheim" = "Hoffenheim", "Bayer 04 Leverkusen" = "Leverkusen",
+                           "1. FSV Mainz 05" = "Mainz 05", "FC St. Pauli" = "St. Pauli",
+                           "VfB Stuttgart" = "Stuttgart", "1. FC Union Berlin" = "Union Berlin",
+                           "VfL Wolfsburg" = "Wolfsburg"))
+
+fbref_teams <- fbref_teams %>%
+  arrange(desc(npxG_diff), desc(npG_diff)) %>% as.data.frame()
+
+
+saveRDS(fbref_teams, "data/2425/fbref_teams.RDS")
+
