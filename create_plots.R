@@ -18,7 +18,12 @@ theme_update(panel.border = element_rect(color = "white", fill = NA),
 players <- readRDS("data/2425/players.RDS")
 players_ssn <- readRDS("data/2425/players_ssn.RDS")
 
+teams_ssn <- readRDS("data/2425/teams_ssn.RDS")
 
+
+####################################################################################################
+########################### Spieler ###############################################################
+####################################################################################################
 
 
 ###### Spieler nach Gesamtpunkten Barplots #######
@@ -324,3 +329,46 @@ players_ssn %>% filter(mins < 900 & mins > 399 & npxG_p90 >= 0.3) %>%
         legend.title = element_blank(), 
         legend.text = element_text(size = 11),
         legend.spacing = unit(0, "cm"))
+
+
+
+####################################################################################################
+########################### Teams ##################################################################
+####################################################################################################
+
+
+###### Tordiffferenz ######
+
+teams_ssn %>% 
+ggplot(aes(y = fct_reorder(team, npxG_diff_p90))) +
+  geom_vline(xintercept = seq(-1.2, 1.7, 0.3), linetype = "dotted", col = "grey") +
+  geom_col(aes(x = npxG_diff_p90, fill = "xG")) +
+  geom_col_pattern(aes(x = npG_diff_p90, col = "Tore"), 
+                   fill = NA,
+                   pattern = "stripe", pattern_fill = "#bc5090", 
+                   pattern_spacing = 0.04, pattern_size = 0.2, pattern_alpha = 0.3) +
+  geom_text(aes(label = team, x = npxG_diff_p90, hjust = ifelse(npxG_diff_p90 >= 0, 1.05, -0.05)), 
+            fontface = "bold") +
+  labs(x = "", y = "", title = "Tordifferenz pro Spiel", 
+       subtitle = "Bundesliga 24/25 | ohne Elfmeter") +
+  scale_x_continuous(breaks = seq(-1.2, 1.7, 0.3), limits = c(-1.2, 1.7), expand = c(0,0)) +
+  scale_y_discrete(breaks = NULL) +
+  scale_fill_manual(values = c("xG" = "#ffa600")) +
+  scale_color_manual(values = c("Tore" = "#bc5090")) +
+  theme(plot.title = element_text(size = 25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 15, hjust = 0.5),
+        axis.text.x = element_text(size = 13, color = "white"), 
+        axis.text.y = element_text(size = 10, color = "white"),
+        legend.title = element_blank(), 
+        legend.text = element_text(size = 11),
+        legend.spacing = unit(0, "cm"))
+
+
+
+
+
+
+
+
+
+
