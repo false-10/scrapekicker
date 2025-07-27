@@ -51,6 +51,7 @@ players <- players %>% mutate(G_coef = case_when(Position == "GOALKEEPER" ~ 6,
                                      Position == "FORWARD" ~ 3,
                                      .default = 3))
 
+players <- players %>% mutate(mins = end - begin, .after = end)
 
 players <- players %>% 
   mutate(status_pts = ifelse(status == "start", 4, ifelse(status == "sub", 2, 0)),
@@ -91,7 +92,8 @@ saveRDS(players, "data/2425/players.RDS")
 players <- readRDS("data/2425/players.RDS")
 
 players_ssn <- players %>% group_by(player, team, Position, MW, name_long) %>% 
-    summarise(starts = sum(status == "start"), starts_graded = sum(status == "start" & !is.na(grade)),
+    summarise(starts = sum(status == "start"), 
+              starts_graded = sum(status == "start" & !is.na(grade)),
               subs = sum(status == "sub"), subs_graded = sum(status == "sub" & !is.na(grade)),
               benchs = sum(status == "bench"),
               mins = sum(end - begin, na.rm = TRUE), 
