@@ -3,6 +3,7 @@ library(tidyverse)
 library(ggdark)
 library(extrafont)
 library(ggrepel)
+library(ggpattern)
 
 "#ffa600"
 "#bc5090"
@@ -13,7 +14,10 @@ theme_update(panel.border = element_rect(color = "white", fill = NA),
              panel.background = element_rect(fill = "#102a43"),
              legend.background = element_rect(fill = "#102a43"))
 
+
+players <- readRDS("data/2425/players.RDS")
 players_ssn <- readRDS("data/2425/players_ssn.RDS")
+
 
 
 
@@ -217,5 +221,106 @@ players_sub_ssn %>% filter(Position != "Tor") %>%
 
 
 
+################ xG-Performance von Spielern ####################
 
 
+players_ssn %>% filter(type == "Sturm" & mins > 899) %>%
+  ggplot(aes(y = fct_reorder(player, npxG_p90))) +
+  geom_vline(xintercept = seq(0, 1.2, 0.1), linetype = "dotted", col = "grey") +
+  geom_col(aes(x = npxG_p90, fill = "xG")) +
+  geom_col_pattern(aes(x = npG_p90, col = "Tore"), 
+                   fill = NA,
+                   pattern = "stripe", pattern_fill = "#bc5090", 
+                   pattern_spacing = 0.04, pattern_size = 0.2, pattern_alpha = 0.3) +
+  geom_text(aes(label = player, x = npxG_p90), hjust = 1.05, nudge_y = -0.005, fontface = "bold") +
+  geom_text(aes(x = npxG_p90, label = sprintf("%.1f", nineties)), 
+            hjust = 1.05, nudge_x = 0.045, fontface = "bold") +
+  labs(x = "", y = "", title = "Torgefahr Stürmer", 
+       subtitle = "Bundesliga 24/25 | pro 90 Min | ohne Elfmeter | mind. 900 Min") +
+  scale_x_continuous(breaks = seq(0, 2, 0.1), limits = c(0, 1.2), expand = c(0,0)) +
+  scale_y_discrete(breaks = NULL) +
+  scale_fill_manual(values = c("xG" = "#ffa600")) +
+  scale_color_manual(values = c("Tore" = "#bc5090")) +
+  theme(plot.title = element_text(size = 25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 15, hjust = 0.5),
+        axis.text.x = element_text(size = 13, color = "white"), 
+        axis.text.y = element_text(size = 10, color = "white"),
+        legend.title = element_blank(), 
+        legend.text = element_text(size = 11),
+        legend.spacing = unit(0, "cm"))
+
+players_ssn %>% filter(type == "Mittelfeld" & mins > 899 & npxG_p90 >= 0.2) %>%
+  ggplot(aes(y = fct_reorder(player, npxG_p90))) +
+  geom_vline(xintercept = seq(0, 1.2, 0.1), linetype = "dotted", col = "grey") +
+  geom_col(aes(x = npxG_p90, fill = "xG")) +
+  geom_col_pattern(aes(x = npG_p90, col = "Tore"), 
+                   fill = NA,
+                   pattern = "stripe", pattern_fill = "#bc5090", 
+                   pattern_spacing = 0.04, pattern_size = 0.2, pattern_alpha = 0.3) +
+  geom_text(aes(label = player, x = npxG_p90), hjust = 1.05, nudge_y = -0.005, fontface = "bold") +
+  geom_text(aes(x = npxG_p90, label = sprintf("%.1f", nineties)), 
+            hjust = 1.05, nudge_x = 0.045, fontface = "bold") +
+  labs(x = "", y = "", title = "Torgefahr Mittelfeldspieler", 
+       subtitle = "Bundesliga 24/25 | pro 90 Min | ohne Elfmeter | mind. 900 Min") +
+  scale_x_continuous(breaks = seq(0, 2, 0.1), limits = c(0, 1.2), expand = c(0,0)) +
+  scale_y_discrete(breaks = NULL) +
+  scale_fill_manual(values = c("xG" = "#ffa600")) +
+  scale_color_manual(values = c("Tore" = "#bc5090")) +
+  theme(plot.title = element_text(size = 25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 15, hjust = 0.5),
+        axis.text.x = element_text(size = 13, color = "white"), 
+        axis.text.y = element_text(size = 10, color = "white"),
+        legend.title = element_blank(), 
+        legend.text = element_text(size = 11),
+        legend.spacing = unit(0, "cm"))
+
+players_ssn %>% filter(type == "Abwehr" & mins > 899 & (npxG_p90 >= 0.1 | npG_p90 >= 0.1)) %>%
+  ggplot(aes(y = fct_reorder(player, npxG_p90))) +
+  geom_vline(xintercept = seq(0, 0.3, 0.1), linetype = "dotted", col = "grey") +
+  geom_col(aes(x = npxG_p90, fill = "xG")) +
+  geom_col_pattern(aes(x = npG_p90, col = "Tore"), 
+                   fill = NA,
+                   pattern = "stripe", pattern_fill = "#bc5090", 
+                   pattern_spacing = 0.04, pattern_size = 0.2, pattern_alpha = 0.3) +
+  geom_text(aes(label = player, x = npxG_p90), hjust = 1.05, nudge_y = -0.005, fontface = "bold") +
+  geom_text(aes(x = npxG_p90, label = sprintf("%.1f", nineties)), 
+            hjust = 1.05, nudge_x = 0.045, fontface = "bold") +
+  labs(x = "", y = "", title = "Torgefahr Abwehrspieler", 
+       subtitle = "Bundesliga 24/25 | pro 90 Min | ohne Elfmeter | mind. 900 Min") +
+  scale_x_continuous(breaks = seq(0, 2, 0.1), limits = c(0, 0.3), expand = c(0,0)) +
+  scale_y_discrete(breaks = NULL) +
+  scale_fill_manual(values = c("xG" = "#ffa600")) +
+  scale_color_manual(values = c("Tore" = "#bc5090")) +
+  theme(plot.title = element_text(size = 25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 15, hjust = 0.5),
+        axis.text.x = element_text(size = 13, color = "white"), 
+        axis.text.y = element_text(size = 10, color = "white"),
+        legend.title = element_blank(), 
+        legend.text = element_text(size = 11),
+        legend.spacing = unit(0, "cm"))
+
+
+players_ssn %>% filter(mins < 900 & mins > 399 & npxG_p90 >= 0.3) %>%
+  ggplot(aes(y = fct_reorder(player, npxG_p90))) +
+  geom_vline(xintercept = seq(0, 1.2, 0.1), linetype = "dotted", col = "grey") +
+  geom_col(aes(x = npxG_p90, fill = "xG")) +
+  geom_col_pattern(aes(x = npG_p90, col = "Tore"), 
+                   fill = NA,
+                   pattern = "stripe", pattern_fill = "#bc5090", 
+                   pattern_spacing = 0.04, pattern_size = 0.2, pattern_alpha = 0.3) +
+  geom_text(aes(label = player, x = npxG_p90), hjust = 1.05, nudge_y = -0.005, fontface = "bold") +
+  geom_text(aes(x = npxG_p90, label = sprintf("%.1f", nineties)), 
+            hjust = 1.05, nudge_x = 0.045, fontface = "bold") +
+  labs(x = "", y = "", title = "Torgefahr Spieler mit wenig Einsatzzeit", 
+       subtitle = "Bundesliga 24/25 | pro 90 Min | ohne Elfmeter | zwischen 400 & 900 Min") +
+  scale_x_continuous(breaks = seq(0, 2, 0.1), limits = c(0, 1.2), expand = c(0,0)) +
+  scale_y_discrete(breaks = NULL) +
+  scale_fill_manual(values = c("xG" = "#ffa600")) +
+  scale_color_manual(values = c("Tore" = "#bc5090")) +
+  theme(plot.title = element_text(size = 25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 15, hjust = 0.5),
+        axis.text.x = element_text(size = 13, color = "white"), 
+        axis.text.y = element_text(size = 10, color = "white"),
+        legend.title = element_blank(), 
+        legend.text = element_text(size = 11),
+        legend.spacing = unit(0, "cm"))
