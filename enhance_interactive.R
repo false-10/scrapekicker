@@ -300,6 +300,40 @@ fbref_teams <- fbref_teams %>%
 fbref_teams <- fbref_teams %>%
   arrange(desc(npxG_diff), desc(npG_diff)) %>% as.data.frame()
 
-
 saveRDS(fbref_teams, "data/2425/fbref_teams.RDS")
 
+
+####### kicker Teamwerte ergänzen ######
+
+teams <- players %>% group_by(spt, team, location, opponent, tG, tGA) %>% 
+  summarise(grade = round(mean(grade, na.rm = TRUE), 2), 
+            npG = sum(npG), pG = sum(pG), npA = sum(npA), pA = sum(pA), ownG = sum(ownG), 
+            ylw = sum(ylw), ylwred = sum(ylwred), red = sum(red), 
+            sds = ifelse(sum(sds) == 1, TRUE, FALSE), MW_sum = sum(MW, na.rm = TRUE),
+            MW_mean = round(mean(MW, na.rm = TRUE), 1),
+            status_pts = sum(status_pts), grade_pts = sum(grade_pts, na.rm = TRUE),
+            npG_pts = sum(npG_pts), pG_pts = sum(pG_pts), npA_pts = sum(npA_pts), 
+            pA_pts = sum(pA_pts), ylwred_pts = sum(ylwred_pts), red_pts = sum(red_pts), 
+            sds_pts = sum(sds_pts), clean_sheet_pts = sum(clean_sheet_pts), 
+            points = sum(points)) %>% 
+  as.data.frame()
+
+
+teams_ssn <- teams %>% group_by(team) %>% 
+  summarise(tG = sum(tG), tGA = sum(tGA),
+            grade = round(mean(grade, na.rm = TRUE), 2), 
+            npG = sum(npG), pG = sum(pG), npA = sum(npA), pA = sum(pA), ownG = sum(ownG), 
+            ylw = sum(ylw), ylwred = sum(ylwred), red = sum(red), 
+            sds = sum(sds), MW_sum = sum(MW_sum, na.rm = TRUE),
+            MW_mean = round(mean(MW_mean, na.rm = TRUE), 2),
+            status_pts = sum(status_pts), grade_pts = sum(grade_pts, na.rm = TRUE),
+            npG_pts = sum(npG_pts), pG_pts = sum(pG_pts), npA_pts = sum(npA_pts), 
+            pA_pts = sum(pA_pts), ylwred_pts = sum(ylwred_pts), red_pts = sum(red_pts), 
+            sds_pts = sum(sds_pts), clean_sheet_pts = sum(clean_sheet_pts), 
+            points = sum(points)) %>% 
+  as.data.frame()
+
+teams_ssn <- teams_ssn %>% full_join(fbref_teams, by = "team", keep = FALSE) %>% 
+  select(!(CrdY_team:CrdR_opponent), -url_fbref_opponent)
+
+saveRDS(teams_ssn, "data/2425/teams_ssn.RDS")
