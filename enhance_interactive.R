@@ -337,3 +337,27 @@ teams_ssn <- teams_ssn %>% full_join(fbref_teams, by = "team", keep = FALSE) %>%
   select(!(CrdY_team:CrdR_opponent), -url_fbref_opponent)
 
 saveRDS(teams_ssn, "data/2425/teams_ssn.RDS")
+
+#######################################################
+########## Nur benotete Startelfeinsätze ##############
+#######################################################
+
+players_start <- players %>% filter(status == "start" & !is.na(grade) & Position != "Tor") %>% 
+  mutate(type = Position)
+
+players_start_ssn <- players_start %>% 
+  group_by(player, team, type, MW) %>% 
+  summarise(starts = n(), mins = sum(end - begin, na.rm = TRUE), nineties = round(mins/90, 1),
+            mins_mean = round(mean(end - begin, na.rm = TRUE)), 
+            grade_mean = round(mean(grade, na.rm = TRUE), 2),
+            tG = sum(tG), tGA = sum(tGA), 
+            npG = sum(npG), pG = sum(pG), npA = sum(npA), pA = sum(pA),
+            ownG = sum(ownG), ylw = sum(ylw), ylwred = sum(ylwred), red = sum(red),
+            sds = sum(sds),
+            status_pts = sum(status_pts), grade_pts = sum(grade_pts),
+            npG_pts = sum(npG_pts), pG_pts = sum(pG_pts), 
+            npA_pts = sum(npA_pts), pA_pts = sum(pA_pts),
+            ylwred_pts = sum(ylwred_pts), red_pts = sum(red_pts),
+            sds_pts = sum(sds_pts), clean_sheet_pts = sum(clean_sheet_pts), 
+            points = sum(points))
+
