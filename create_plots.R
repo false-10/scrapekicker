@@ -153,18 +153,27 @@ players_ssn %>% filter(type != "Tor") %>%
 
 
 players_ssn %>% filter(type != "Tor") %>%
-  ggplot(aes(x = points, y = MW, col = type)) +
-  geom_point() +
-  gghighlight::gghighlight() + 
-  facet_wrap(vars(type))
-
-
-players_ssn %>% filter(type != "Tor") %>%
   mutate(PpM = points/MW) %>% 
   ggplot(aes(x = points, y = PpM, col = type)) +
   geom_point() +
   geom_vline(xintercept = mean(points), linetype = "dashed") +
-  geom_text_repel(aes(label = player))
+  geom_text_repel(aes(label = player)) +
+  labs(x = "Punkte", y = "Punkte pro Mio", title = "Effizienzvergleich",
+       subtitle = "Saison 24/25 | ohne Torhüter") +
+  scale_x_continuous(breaks = seq(0, 380, 50), limits = c(0, 380), expand = c(0,0)) +
+  scale_y_continuous(breaks = seq(0,220,50), limits= c(0,220), expand = c(0,0)) +
+  theme(plot.title = element_text(size = 25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 15, hjust = 0.5),
+        axis.title.x = element_text(size = 13),
+        axis.title.y = element_text(size = 13),
+        axis.text.x = element_text(size = 10, color = "white"), 
+        axis.text.y = element_text(size = 10, color = "white"),
+        legend.title = element_blank(), 
+        legend.position = c(0.9, 0.8),
+        legend.text = element_text(size = 11),
+        legend.spacing = unit(0, "cm"))
+
+ggsave("plots/2425/Spieler_Punkte_PpM.png", dpi = 400)
 
 players_ssn %>% filter(type != "Tor") %>%
   mutate(PpM = points/MW) %>% 
