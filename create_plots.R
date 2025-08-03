@@ -89,6 +89,58 @@ players_ssn %>% filter(points >= 100 & points < 150 & type != "Tor") %>%
         legend.spacing = unit(0, "cm"))
 
 
+###### Gesamtpunkte nach Position Boxplot ######
+
+players_ssn %>% filter(!is.na(type)) %>% 
+  ggplot(aes(x = type, y = points, fill = type)) +
+  geom_boxplot() +
+  scale_y_continuous(limits = c(-10, 350))
+
+players_ssn %>% filter(!is.na(type) & points >= 10) %>% 
+  ggplot(aes(x = type, y = points, fill = type)) +
+  geom_boxplot() +
+  scale_y_continuous(limits = c(-10, 350))
+
+players_ssn %>% filter(!is.na(type) & starts > 0) %>% 
+  ggplot(aes(x = type, y = points, fill = type)) +
+  geom_boxplot() +
+  scale_y_continuous(limits = c(-10, 350))
+
+players_ssn %>% filter(!is.na(type) & starts > 0) %>% 
+  ggplot(aes(x = type, y = points, fill = type)) +
+  geom_violin(draw_quantiles = c(0.1, 0.5, 0.9)) +
+  scale_y_continuous(limits = c(-10, 350))
+
+players_ssn %>% filter(!is.na(type) & starts > 9) %>% 
+  ggplot(aes(x = type, y = points, fill = type)) +
+  geom_hline(yintercept = seq(0, 350, 50), linetype = "dotted", col = "grey", alpha = 0.3) +
+  geom_violin(draw_quantiles = c(0.1, 0.5, 0.9), scale = "count") +
+  geom_jitter(width = 0.1, col = "white") +
+  scale_y_continuous(breaks = seq(0, 350, 50)) +
+  scale_fill_discrete(guide = "none") +
+  labs(x = "", y = "", title = "Punkteverteilung nach Position",
+       subtitle = "Saison 24/25 | mind. 1 Startelfeinsatz") +
+  theme(plot.title = element_text(size = 25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 15, hjust = 0.5),
+        axis.text.x = element_text(size = 13, color = "white"), 
+        axis.text.y = element_text(size = 10, color = "white"))
+
+ggsave("plots/2425/Punkte_Position_violin.png", dpi = 400)
+
+
+###### Spieler nach Art der Punkte ######
+
+players_ssn %>% filter(type != "Tor" & points >= 200) %>% 
+  pivot_longer(cols = status_pts:sds_pts, names_to = "pts_type", values_to = "pts") %>%
+  ggplot(aes(y = fct_reorder(player, points), x = pts, fill = pts_type)) +
+  geom_col()
+  
+players_ssn %>% filter(type != "Tor" & points >= 150 & points < 200) %>% 
+  pivot_longer(cols = status_pts:sds_pts, names_to = "pts_type", values_to = "pts") %>% view()
+  ggplot(aes(y = fct_reorder(player, points), x = pts, fill = pts_type)) +
+  geom_col()
+
+
 ###### Spieler nach Gesamtpunkten & Marktwert #######
 
 players_ssn %>% filter(Position != "Tor") %>%
