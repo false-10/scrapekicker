@@ -29,14 +29,14 @@ teams_ssn <- readRDS("data/2425/teams_ssn.RDS")
 ###### Spieler nach Gesamtpunkten Barplots #######
 
 
-players_ssn %>% filter(points >= 200 && Position != "Tor") %>%
-ggplot(aes(x = points, y = fct_reorder(player, points), fill = Position)) +
-  geom_vline(xintercept = seq(0, 300, 50), linetype = "dotted", col = "grey") +
+players_ssn %>% filter(points >= 200 & type != "Tor") %>%
+ggplot(aes(x = points, y = fct_reorder(player, points), fill = type)) +
+  geom_vline(xintercept = seq(0, 350, 50), linetype = "dotted", col = "grey") +
   geom_col() +
   geom_text(aes(label = player), hjust = 1.1, nudge_y = -0.005, fontface = "bold") +
-  geom_text(aes(label = sprintf("%.1f", MW)), hjust = 1.05, nudge_x = +10, fontface = "bold") +
-  labs(x = "", y = "", title = "Spieler mit mind. 200 Punkten",
-       subtitle = "ohne Torhüter | Saison 24/25") +
+  geom_text(aes(label = sprintf("%.1f", MW)), hjust = 1.05, nudge_x = +13, fontface = "bold") +
+  labs(x = "", y = "", title = "Gesamtpunkte Spieler nach Position",
+       subtitle = "Saison 24/25 | ohne Torhüter | mind. 200 Punkte") +
   scale_x_continuous(breaks = seq(0, 300, 50), limits = c(0, 370), expand = c(0,0)) +
   scale_y_discrete(breaks = NULL) +
   theme(plot.title = element_text(size = 25, hjust = 0.5), 
@@ -47,15 +47,17 @@ ggplot(aes(x = points, y = fct_reorder(player, points), fill = Position)) +
         legend.text = element_text(size = 11),
         legend.spacing = unit(0, "cm"))
 
+ggsave("plots/2425/Spieler_Punkte_200.png", dpi = 400)
 
-players_ssn %>% filter(points >= 150 && points < 200 && Position != "Tor") %>%
-  ggplot(aes(x = points, y = fct_reorder(player, points), fill = Position)) +
+
+players_ssn %>% filter(points >= 150 & points < 200 & type != "Tor") %>%
+  ggplot(aes(x = points, y = fct_reorder(player, points), fill = type)) +
   geom_vline(xintercept = seq(0, 230, 50), linetype = "dotted", col = "grey") +
   geom_col() +
   geom_text(aes(label = player), hjust = 1.1, nudge_y = -0.005, fontface = "bold") +
   geom_text(aes(label = sprintf("%.1f", MW)), hjust = 1.05, nudge_x = +10, fontface = "bold") +
   labs(x = "", y = "", title = "Spieler zwischen 150 & 200 Punkten",
-       subtitle = "ohne Torhüter | Saison 24/25") +
+       subtitle = "Saison 24/25 | ohne Torhüter") +
   scale_x_continuous(breaks = seq(0, 230, 50), limits = c(0, 230), expand = c(0,0)) +
   scale_y_discrete(breaks = NULL) +
   theme(plot.title = element_text(size = 25, hjust = 0.5), 
@@ -66,9 +68,10 @@ players_ssn %>% filter(points >= 150 && points < 200 && Position != "Tor") %>%
         legend.text = element_text(size = 11),
         legend.spacing = unit(0, "cm"))
 
+ggsave("plots/2425/Spieler_Punkte_150.png", dpi = 400)
 
-players_ssn %>% filter(points >= 100 && points < 150 && Position != "Tor") %>%
-  ggplot(aes(x = points, y = fct_reorder(player, points), fill = Position)) +
+players_ssn %>% filter(points >= 100 & points < 150 & type != "Tor") %>%
+  ggplot(aes(x = points, y = fct_reorder(player, points), fill = type)) +
   geom_vline(xintercept = seq(0, 230, 50), linetype = "dotted", col = "grey") +
   geom_col() +
   geom_text(aes(label = player), hjust = 1.1, nudge_y = -0.005, fontface = "bold") +
