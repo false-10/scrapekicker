@@ -21,6 +21,9 @@ players_ssn <- readRDS("data/2425/players_ssn.RDS")
 
 teams_ssn <- readRDS("data/2425/teams_ssn.RDS")
 
+players_start <- readRDS("data/2425/players_start.RDS")
+players_start_ssn <- readRDS("data/2425/players_start_ssn.RDS")
+
 
 ####################################################################################################
 ########################### Spieler ###############################################################
@@ -185,7 +188,7 @@ players_ssn %>% filter(type != "Tor") %>%
 
 
 
-####### das Ganze nochmal nur mit benoteten Startelfeinsätzen ######
+###### das Ganze nochmal nur mit benoteten Startelfeinsätzen ######
 
 
 players_start_ssn %>% filter(points >= 200 & type != "Tor") %>%
@@ -278,7 +281,7 @@ players_start_ssn %>% filter(type != "Tor") %>%
 
 
 
-######### Nur Einwechslungen über die Saison #######
+###### Nur Einwechslungen über die Saison #######
 
 
 players_sub_ssn %>% filter(type != "Tor") %>% 
@@ -290,25 +293,6 @@ players_sub_ssn %>% filter(type != "Tor") %>%
   labs(x = "", y = "")
 
 
-
-
-
-###### Vereinspositionen nach Noten #######
-
-players %>% filter(!is.na(type) & type != "Tor") %>% group_by(team, type) %>% 
-  summarise(tG = sum(tG), tGA = sum(tGA),
-          grade = round(mean(grade), 2), 
-          npG = sum(npG), pG = sum(pG), npA = sum(npA), pA = sum(pA), ownG = sum(ownG), 
-          ylw = sum(ylw), ylwred = sum(ylwred), red = sum(red), 
-          sds = sum(sds), MW_sum = sum(MW, na.rm = TRUE),
-          MW_mean = round(mean(MW, na.rm = TRUE), 2),
-          status_pts = sum(status_pts), grade_pts = sum(grade_pts, na.rm = TRUE),
-          npG_pts = sum(npG_pts), pG_pts = sum(pG_pts), npA_pts = sum(npA_pts), 
-          pA_pts = sum(pA_pts), ylwred_pts = sum(ylwred_pts), red_pts = sum(red_pts), 
-          sds_pts = sum(sds_pts), clean_sheet_pts = sum(clean_sheet_pts), 
-          points = sum(points)) %>% 
-  ggplot(aes(x = points, y = team, fill = type)) +
-  geom_col(position = "stack")
 
 
 
@@ -421,6 +405,74 @@ players_ssn %>% filter(mins < 900 & mins > 399 & npxG_p90 >= 0.3) %>%
 ####################################################################################################
 ########################### Teams ##################################################################
 ####################################################################################################
+
+###### Gesamtpunkte nach Position #######
+
+players %>% filter(!is.na(type) & type != "Tor") %>% 
+  group_by(team, type) %>% 
+  summarise(points = sum(points)) %>% 
+  group_by(team) %>% mutate(points_all = sum(points)) %>%
+  ggplot(aes(x = points, y = fct_reorder(team, points_all), fill = type)) +
+  geom_vline(xintercept = seq(0,3000,500), col = "grey", alpha = 0.3) +
+  geom_col(position = "stack") +
+  labs(x = "", y = "", title = "Gesamtpunkte Vereine",
+       subtitle = "Saison 24/25 | ohne Torhüter") +
+  scale_x_continuous(breaks = seq(0, 3000, 500), limits = c(0, 3000), expand = c(0,0)) +
+  theme(plot.title = element_text(size = 25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 15, hjust = 0.5),
+        axis.text.x = element_text(size = 13, color = "white"), 
+        axis.text.y = element_text(size = 10, color = "white"),
+        legend.title = element_blank(), 
+        legend.text = element_text(size = 11),
+        legend.spacing = unit(0, "cm"))
+
+ggsave("plots/2425/Teams_Punkte_Position.png", dpi = 400)
+
+
+players %>% filter(!is.na(type) & type != "Tor") %>% 
+  group_by(team, type) %>% 
+  summarise(mins = sum(mins, na.rm = TRUE),
+            points = sum(points)) %>% 
+  group_by(team) %>% mutate(points_all = sum(points)) %>%
+  ggplot(aes(x = points/mins, y = fct_reorder(team, points_all), fill = type)) +
+  geom_vline(xintercept = seq(0, 0.3, 0.05), col = "grey", alpha = 0.3) +
+  geom_col(position = "stack") +
+  labs(x = "", y = "", title = "Gesamtpunkte Vereine nach Spielzeit (absolut)",
+       subtitle = "Saison 24/25 | ohne Torhüter") +
+  scale_x_continuous(breaks = 0, expand = c(0,0)) +
+  theme(plot.title = element_text(size = 25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 15, hjust = 0.5),
+        axis.text.x = element_text(size = 13, color = "#102a43"), 
+        axis.text.y = element_text(size = 10, color = "white"),
+        legend.title = element_blank(), 
+        legend.text = element_text(size = 11),
+        legend.spacing = unit(0, "cm"))
+
+ggsave("plots/2425/Teams_Punkte_Position_mins.png", dpi = 400)
+
+players %>% filter(!is.na(type) & type != "Tor") %>% 
+  group_by(team, type) %>% 
+  summarise(mins = sum(mins, na.rm = TRUE),
+            points = sum(points)) %>% 
+  group_by(team) %>% mutate(points_all = sum(points)) %>%
+  ggplot(aes(x = points/mins, y = fct_reorder(team, points_all), fill = type)) +
+  geom_col(position = "fill") +
+  geom_vline(xintercept = c(1/3, 2/3), col = "grey") +
+  labs(x = "", y = "", title = "Gesamtpunkte Vereine nach Spielzeit (relativ)",
+       subtitle = "Saison 24/25 | ohne Torhüter") +
+  scale_x_continuous(breaks = seq(0, 1, 1/3), expand = c(0,0), labels = c("0", "1/3", "2/3", "1")) +
+  theme(plot.title = element_text(size = 25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 15, hjust = 0.5),
+        axis.text.x = element_text(size = 13, color = "white"), 
+        axis.text.y = element_text(size = 10, color = "white"),
+        legend.title = element_blank(), 
+        legend.text = element_text(size = 11),
+        legend.spacing = unit(0, "cm"))
+
+ggsave("plots/2425/Teams_Punkte_Position_mins_fill.png", dpi = 400)
+
+
+
 
 
 ###### Vergleich Noten Heim vs Auswärts ######
