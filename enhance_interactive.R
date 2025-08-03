@@ -362,3 +362,5 @@ players_start_ssn <- players_start %>%
             sds_pts = sum(sds_pts), clean_sheet_pts = sum(clean_sheet_pts), 
             points = sum(points))
 
+saveRDS(players_start, "data/2425/players_start.RDS")
+saveRDS(players_start_ssn, "data/2425/players_start_ssn.RDS")
