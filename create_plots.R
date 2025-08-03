@@ -143,34 +143,34 @@ players_ssn %>% filter(type != "Tor" & points >= 150 & points < 200) %>%
 
 ###### Spieler nach Gesamtpunkten & Marktwert #######
 
-players_ssn %>% filter(Position != "Tor") %>%
-  ggplot(aes(x = points, y = MW, col = Position)) +
+players_ssn %>% filter(type != "Tor") %>%
+  ggplot(aes(x = points, y = MW, col = type)) +
   geom_point() +
-  geom_abline(intercept = 0, slope = 0.001*(2^(3:8)), color="red", 
+  geom_abline(intercept = 0, slope = 0.001*(2^(3:8)), color="grey", 
               linetype="dashed") +
   scale_x_continuous(expand = c(0,0)) +
-  ggrepel::geom_text_repel(aes(label = player))
+  geom_text_repel(aes(label = player))
 
 
-players_ssn %>% filter(Position != "Tor") %>%
-  ggplot(aes(x = points, y = MW, col = Position)) +
+players_ssn %>% filter(type != "Tor") %>%
+  ggplot(aes(x = points, y = MW, col = type)) +
   geom_point() +
   gghighlight::gghighlight() + 
-  facet_wrap(vars(Position))
+  facet_wrap(vars(type))
 
 
-players_ssn %>% filter(Position != "Tor") %>%
+players_ssn %>% filter(type != "Tor") %>%
   mutate(PpM = points/MW) %>% 
-  ggplot(aes(x = points, y = PpM, col = Position)) +
+  ggplot(aes(x = points, y = PpM, col = type)) +
   geom_point() +
   geom_vline(xintercept = mean(points), linetype = "dashed") +
-  ggrepel::geom_text_repel(aes(label = player))
+  geom_text_repel(aes(label = player))
 
-players_ssn %>% filter(Position != "Tor") %>%
+players_ssn %>% filter(type != "Tor") %>%
   mutate(PpM = points/MW) %>% 
-  ggplot(aes(x = MW, y = PpM, col = Position)) +
+  ggplot(aes(x = MW, y = PpM, col = type)) +
   geom_point() +
-  ggrepel::geom_text_repel(aes(label = player))
+  geom_text_repel(aes(label = player))
   
 
 
@@ -178,8 +178,8 @@ players_ssn %>% filter(Position != "Tor") %>%
 ####### das Ganze nochmal nur mit benoteten Startelfeinsätzen ######
 
 
-players_start_ssn %>% filter(points >= 200 && Position != "Tor") %>%
-  ggplot(aes(x = points, y = fct_reorder(player, points), fill = Position)) +
+players_start_ssn %>% filter(points >= 200 & type != "Tor") %>%
+  ggplot(aes(x = points, y = fct_reorder(player, points), fill = type)) +
   geom_vline(xintercept = seq(0, 300, 50), linetype = "dotted", col = "grey") +
   geom_col() +
   geom_text(aes(label = player), hjust = 1.1, nudge_y = -0.005, fontface = "bold") +
@@ -197,14 +197,14 @@ players_start_ssn %>% filter(points >= 200 && Position != "Tor") %>%
         legend.spacing = unit(0, "cm"))
 
 
-players_start_ssn %>% filter(points >= 150 && points < 200 && Position != "Tor") %>%
-  ggplot(aes(x = points, y = fct_reorder(player, points), fill = Position)) +
+players_start_ssn %>% filter(points >= 150 && points < 200 && type != "Tor") %>%
+  ggplot(aes(x = points, y = fct_reorder(player, points), fill = type)) +
   geom_vline(xintercept = seq(0, 230, 50), linetype = "dotted", col = "grey") +
   geom_col() +
   geom_text(aes(label = player), hjust = 1.1, nudge_y = -0.005, fontface = "bold") +
   geom_text(aes(label = sprintf("%.1f", MW)), hjust = 1.05, nudge_x = +10, fontface = "bold") +
   labs(x = "", y = "", title = "Spieler zwischen 150 & 200 Punkten",
-       subtitle = "ohne Torhüter | Saison 24/25") +
+       subtitle = "Saison 24/25 | ohne Torhüter") +
   scale_x_continuous(breaks = seq(0, 230, 50), limits = c(0, 230), expand = c(0,0)) +
   scale_y_discrete(breaks = NULL) +
   theme(plot.title = element_text(size = 25, hjust = 0.5), 
@@ -216,14 +216,14 @@ players_start_ssn %>% filter(points >= 150 && points < 200 && Position != "Tor")
         legend.spacing = unit(0, "cm"))
 
 
-players_start_ssn %>% filter(points >= 100 && points < 150 && Position != "Tor") %>%
-  ggplot(aes(x = points, y = fct_reorder(player, points), fill = Position)) +
-  geom_vline(xintercept = seq(0, 230, 50), linetype = "dotted", col = "grey") +
+players_start_ssn %>% filter(points >= 100 && points < 150 && type != "Tor") %>%
+  ggplot(aes(x = points, y = fct_reorder(player, points), fill = type)) +
+  geom_vline(xintercept = seq(0, 160, 50), linetype = "dotted", col = "grey") +
   geom_col() +
   geom_text(aes(label = player), hjust = 1.1, nudge_y = -0.005, fontface = "bold") +
   geom_text(aes(label = sprintf("%.1f", MW)), hjust = 1.05, nudge_x = +10, fontface = "bold") +
-  labs(x = "", y = "", title = "Spieler mit mind. 200 Punkten",
-       subtitle = "ohne Torhüter | Saison 24/25") +
+  labs(x = "", y = "", title = "Spieler zwischen 100 & 150 Punkten",
+       subtitle = "Saison 24/25 | ohne Torhüter") +
   scale_x_continuous(breaks = seq(0, 230, 50), limits = c(0, 170), expand = c(0,0)) +
   scale_y_discrete(breaks = NULL) +
   theme(plot.title = element_text(size = 25, hjust = 0.5), 
@@ -237,32 +237,32 @@ players_start_ssn %>% filter(points >= 100 && points < 150 && Position != "Tor")
 
 ###### Spieler nach Gesamtpunkten & Marktwert #######
 
-players_start_ssn %>% filter(Position != "Tor") %>%
-  ggplot(aes(x = points, y = MW, col = Position)) +
+players_start_ssn %>% filter(type != "Tor") %>%
+  ggplot(aes(x = points, y = MW, col = type)) +
   geom_point() +
-  geom_abline(intercept = 0, slope = 0.001*(2^(3:8)), color="red", 
+  geom_abline(intercept = 0, slope = 0.001*(2^(3:8)), color="grey", 
               linetype="dashed") +
   scale_x_continuous(expand = c(0,0)) +
   ggrepel::geom_text_repel(aes(label = player))
 
 
-players_start_ssn %>% filter(Position != "Tor") %>%
-  ggplot(aes(x = points, y = MW, col = Position)) +
+players_start_ssn %>% filter(type != "Tor") %>%
+  ggplot(aes(x = points, y = MW, col = type)) +
   geom_point() +
   gghighlight::gghighlight() + 
-  facet_wrap(vars(Position))
+  facet_wrap(vars(type))
 
 
-players_start_ssn %>% filter(Position != "Tor") %>%
+players_start_ssn %>% filter(type != "Tor") %>%
   mutate(PpM = points/MW) %>% 
-  ggplot(aes(x = points, y = PpM, col = Position)) +
+  ggplot(aes(x = points, y = PpM, col = type)) +
   geom_point() +
   geom_vline(xintercept = mean(points), linetype = "dashed") +
   ggrepel::geom_text_repel(aes(label = player))
 
-players_start_ssn %>% filter(Position != "Tor") %>%
+players_start_ssn %>% filter(type != "Tor") %>%
   mutate(PpM = points/MW) %>% 
-  ggplot(aes(x = MW, y = PpM, col = Position)) +
+  ggplot(aes(x = MW, y = PpM, col = type)) +
   geom_point() +
   ggrepel::geom_text_repel(aes(label = player))
 
@@ -271,13 +271,36 @@ players_start_ssn %>% filter(Position != "Tor") %>%
 ######### Nur Einwechslungen über die Saison #######
 
 
-players_sub_ssn %>% filter(Position != "Tor") %>% 
-  ggplot(aes(x = subs, y = points, col = Position)) +
+players_sub_ssn %>% filter(type != "Tor") %>% 
+  ggplot(aes(x = subs, y = points, col = type)) +
   geom_abline(slope = 2, linetype = "dotted", col = "grey") +
   geom_hline(yintercept = 0, linetype = "dotted", col = "grey") +
   geom_point() +
   ggrepel::geom_text_repel(aes(label = player)) +
   labs(x = "", y = "")
+
+
+
+
+
+###### Vereinspositionen nach Noten #######
+
+players_start %>% filter(!is.na(type) & type != "Tor") %>% group_by(team, type) %>% 
+  summarise(tG = sum(tG), tGA = sum(tGA),
+          grade = round(mean(grade), 2), 
+          npG = sum(npG), pG = sum(pG), npA = sum(npA), pA = sum(pA), ownG = sum(ownG), 
+          ylw = sum(ylw), ylwred = sum(ylwred), red = sum(red), 
+          sds = sum(sds), MW_sum = sum(MW, na.rm = TRUE),
+          MW_mean = round(mean(MW, na.rm = TRUE), 2),
+          status_pts = sum(status_pts), grade_pts = sum(grade_pts, na.rm = TRUE),
+          npG_pts = sum(npG_pts), pG_pts = sum(pG_pts), npA_pts = sum(npA_pts), 
+          pA_pts = sum(pA_pts), ylwred_pts = sum(ylwred_pts), red_pts = sum(red_pts), 
+          sds_pts = sum(sds_pts), clean_sheet_pts = sum(clean_sheet_pts), 
+          points = sum(points)) %>% 
+  ggplot(aes(x = grade, y = type, fill = type)) +
+  geom_col(position = "dodge") +
+  scale_x_continuous(limits = c(2.5,4), oob = scales::squish) +
+  facet_grid(. ~ team, margins=TRUE)
 
 
 
@@ -392,6 +415,50 @@ players_ssn %>% filter(mins < 900 & mins > 399 & npxG_p90 >= 0.3) %>%
 ####################################################################################################
 
 
+###### Vergleich Noten Heim vs Auswärts ######
+
+players_start %>% 
+  mutate(g_diff = tG-tGA) %>% 
+  group_by(team, location) %>% 
+  summarise(grade_mean = mean(grade), g_diff = sum(g_diff)) %>%
+  ggplot(aes(x = team, y = grade_mean, fill = location)) +
+  geom_col(position = "dodge") +
+  scale_y_continuous() +
+  coord_cartesian(ylim = c(2.8, 4))
+
+
+players_start %>% 
+  group_by(spt, team, location) %>% 
+  summarise(g_diff = mean(tG) - mean(tGA), grade_mean = mean(grade)) %>% 
+  group_by(team, location) %>% 
+  summarise(grade_mean = mean(grade_mean), g_diff = sum(g_diff)) %>% 
+  pivot_wider(names_from = location, values_from = c(grade_mean, g_diff)) %>% 
+  mutate(grade_diff = grade_mean_away - grade_mean_home,
+         g_diff_diff = g_diff_home - g_diff_away) %>% 
+  ggplot(aes(y = grade_diff, x = g_diff_diff)) +
+  geom_point() +
+  geom_hline(yintercept = 0) +
+  geom_vline(xintercept = 0) +
+  geom_text_repel(aes(label = team))
+
+
+players_start %>% 
+  group_by(spt, team, location) %>% 
+  summarise(tpoints = case_when(mean(tG) - mean(tGA) > 0 ~ 3,
+                                mean(tG) - mean(tGA) == 0 ~1,
+                                mean(tG) - mean(tGA) < 0 ~ 0), 
+            grade_mean = mean(grade)) %>% 
+  group_by(team, location) %>% 
+  summarise(grade_mean = mean(grade_mean), tpoints = sum(tpoints)) %>% 
+  pivot_wider(names_from = location, values_from = c(grade_mean, tpoints)) %>% 
+  mutate(grade_diff = grade_mean_away - grade_mean_home,
+         tpoints_diff = tpoints_home - tpoints_away) %>% 
+  ggplot(aes(y = grade_diff, x = tpoints_diff)) +
+  geom_point() +
+  geom_hline(yintercept = 0) +
+  geom_vline(xintercept = 0) +
+  geom_text_repel(aes(label = team))
+
 ###### Tordiffferenz ######
 
 teams_ssn %>% 
@@ -417,12 +484,6 @@ ggplot(aes(y = fct_reorder(team, npxG_diff_p90))) +
         legend.title = element_blank(), 
         legend.text = element_text(size = 11),
         legend.spacing = unit(0, "cm"))
-
-
-
-
-
-
 
 
 
