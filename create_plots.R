@@ -4,6 +4,7 @@ library(ggdark)
 library(extrafont)
 library(ggrepel)
 library(ggpattern)
+library(gtExtras)
 
 "#ffa600"
 "#bc5090"
@@ -136,7 +137,7 @@ players_ssn %>% filter(type != "Tor" & points >= 200) %>%
   geom_col()
   
 players_ssn %>% filter(type != "Tor" & points >= 150 & points < 200) %>% 
-  pivot_longer(cols = status_pts:sds_pts, names_to = "pts_type", values_to = "pts") %>% view()
+  pivot_longer(cols = status_pts:sds_pts, names_to = "pts_type", values_to = "pts") %>%
   ggplot(aes(y = fct_reorder(player, points), x = pts, fill = pts_type)) +
   geom_col()
 
@@ -294,7 +295,7 @@ players_sub_ssn %>% filter(type != "Tor") %>%
 
 ###### Vereinspositionen nach Noten #######
 
-players_start %>% filter(!is.na(type) & type != "Tor") %>% group_by(team, type) %>% 
+players %>% filter(!is.na(type) & type != "Tor") %>% group_by(team, type) %>% 
   summarise(tG = sum(tG), tGA = sum(tGA),
           grade = round(mean(grade), 2), 
           npG = sum(npG), pG = sum(pG), npA = sum(npA), pA = sum(pA), ownG = sum(ownG), 
@@ -306,10 +307,8 @@ players_start %>% filter(!is.na(type) & type != "Tor") %>% group_by(team, type) 
           pA_pts = sum(pA_pts), ylwred_pts = sum(ylwred_pts), red_pts = sum(red_pts), 
           sds_pts = sum(sds_pts), clean_sheet_pts = sum(clean_sheet_pts), 
           points = sum(points)) %>% 
-  ggplot(aes(x = grade, y = type, fill = type)) +
-  geom_col(position = "dodge") +
-  scale_x_continuous(limits = c(2.5,4), oob = scales::squish) +
-  facet_grid(. ~ team, margins=TRUE)
+  ggplot(aes(x = points, y = team, fill = type)) +
+  geom_col(position = "stack")
 
 
 

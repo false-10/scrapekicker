@@ -69,6 +69,8 @@ players$Position <- fct_recode(players$Position, Sturm = "FORWARD", Mittelfeld =
 
 players$Position <- factor(players$Position, levels = c("Sturm", "Mittelfeld", "Abwehr", "Tor"))
 
+players <- players %>% mutate(type = Position, .after = player)
+
 players <- players %>% mutate(name_long = ifelse(is.na(Name_lang), player, Name_lang))
 
 ### Überprüfen auf Fehler ###
@@ -91,7 +93,7 @@ saveRDS(players, "data/2425/players.RDS")
 
 players <- readRDS("data/2425/players.RDS")
 
-players_ssn <- players %>% group_by(player, team, Position, MW, name_long) %>% 
+players_ssn <- players %>% group_by(player, team, type, MW, name_long) %>% 
     summarise(starts = sum(status == "start"), 
               starts_graded = sum(status == "start" & !is.na(grade)),
               subs = sum(status == "sub"), subs_graded = sum(status == "sub" & !is.na(grade)),
@@ -188,7 +190,7 @@ players_ssn <- players_ssn %>%
          A_perf_p90 = A_p90 - xAG_p90, A_perf_rel_p90 = round(A_p90/xAG_p90, 2),
          npG_A_perf_p90 = npG_A_p90 - npxG_xAG_p90, 
          npG_A_perf_rel_p90 = round(npG_A_p90/npxG_xAG_p90, 2)) %>% 
-  select(player, team, type = Position, MW,
+  select(player, team, type, MW,
          nation = Nation, position = Pos, age = Age, born = Born,
          starts, starts_graded, subs, subs_graded, benchs, mins, mins_mean, nineties = Nineties,
          grade_mean, tG, tGA,
@@ -224,7 +226,7 @@ write.csv(players_ssn, "data/2425/players_ssn.csv")
 
 
 players_start_ssn <- players %>% filter(status == "start" & !is.na(grade)) %>% 
-  group_by(player, team, Position, MW) %>% 
+  group_by(player, team, type, MW) %>% 
   summarise(starts = sum(status == "start"), starts_graded = sum(status == "start" & !is.na(grade)),
             subs = sum(status == "sub"), subs_graded = sum(status == "sub" & !is.na(grade)),
             benchs = sum(status == "bench"),
@@ -242,7 +244,7 @@ players_start_ssn <- players %>% filter(status == "start" & !is.na(grade)) %>%
             sds_pts = sum(sds_pts), clean_sheet_pts = sum(clean_sheet_pts), points = sum(points))
 
 players_sub_ssn <- players %>% filter(status == "sub") %>% 
-  group_by(player, team, Position, MW) %>% 
+  group_by(player, team, type, MW) %>% 
   summarise(starts = sum(status == "start"), starts_graded = sum(status == "start" & !is.na(grade)),
             subs = sum(status == "sub"), subs_graded = sum(status == "sub" & !is.na(grade)),
             benchs = sum(status == "bench"),
@@ -342,8 +344,7 @@ saveRDS(teams_ssn, "data/2425/teams_ssn.RDS")
 ########## Nur benotete Startelfeinsätze ##############
 #######################################################
 
-players_start <- players %>% filter(status == "start" & !is.na(grade) & Position != "Tor") %>% 
-  mutate(type = Position)
+players_start <- players %>% filter(status == "start" & !is.na(grade) & type != "Tor")
 
 players_start_ssn <- players_start %>% 
   group_by(player, team, type, MW) %>% 
