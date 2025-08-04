@@ -5,6 +5,7 @@ library(extrafont)
 library(ggrepel)
 library(ggpattern)
 library(gtExtras)
+library(plotly)
 
 "#ffa600"
 "#bc5090"
@@ -289,7 +290,7 @@ players_sub_ssn %>% filter(type != "Tor") %>%
   geom_abline(slope = 2, linetype = "dotted", col = "grey") +
   geom_hline(yintercept = 0, linetype = "dotted", col = "grey") +
   geom_point() +
-  ggrepel::geom_text_repel(aes(label = player)) +
+  geom_text_repel(aes(label = player)) +
   labs(x = "", y = "")
 
 
@@ -472,7 +473,26 @@ players %>% filter(!is.na(type) & type != "Tor") %>%
 ggsave("plots/2425/Teams_Punkte_Position_mins_fill.png", dpi = 400)
 
 
+players_start_ssn %>% filter(!is.na(type) & type != "Tor" & starts > 9) %>% 
+  ggplot(aes(x = grade_mean, y = team, col = type, 
+         text = paste(player, "\nNote: ", grade_mean))) +
+  geom_point() +
+  geom_text_repel(aes(label = player), max.overlaps = 6, vjust = 0.5, size = 2.5) +
+  labs(x = "", y = "", title = "Notenschnitt Spieler nach Verein",
+       subtitle = "Saison 24/25 | ohne Torhüter | mind. 10 Startelfeinsätze") +
+  scale_x_continuous(breaks = seq(2.5, 4.5, 0.5), limits = c(2.3, 4.7), expand = c(0,0)) +
+  scale_y_discrete(limits = rev) +
+  theme(plot.title = element_text(size = 25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 15, hjust = 0.5),
+        axis.text.x = element_text(size = 13, color = "white"), 
+        axis.text.y = element_text(size = 10, color = "white"),
+        legend.title = element_blank(), 
+        legend.text = element_text(size = 11),
+        legend.spacing = unit(0, "cm"))
 
+ggsave("plots/2425/Teams_Spieler_Note.png", dpi = 400)
+
+ggplotly(tooltip = "text")
 
 
 ###### Vergleich Noten Heim vs Auswärts ######
@@ -543,7 +563,7 @@ ggplot(aes(y = fct_reorder(team, npxG_diff_p90))) +
         axis.text.y = element_text(size = 10, color = "white"),
         legend.title = element_blank(), 
         legend.text = element_text(size = 11),
-        legend.spacing = unit(0, "cm"))
+        legend.spacing = unit(0, "cm")) 
 
 
 
