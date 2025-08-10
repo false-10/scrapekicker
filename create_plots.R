@@ -26,6 +26,82 @@ players_start <- readRDS("data/2425/players_start.RDS")
 players_start_ssn <- readRDS("data/2425/players_start_ssn.RDS")
 
 
+
+####################################################################################################
+########################### Teams ##################################################################
+####################################################################################################
+
+###### Gesamtpunkte nach Position #######
+
+players %>% filter(!is.na(type) & type != "Tor") %>% 
+  group_by(team, type) %>% 
+  summarise(points = sum(points)) %>% 
+  group_by(team) %>% mutate(points_all = sum(points)) %>%
+  ggplot(aes(x = points, y = fct_reorder(team, points_all), fill = type)) +
+  geom_vline(xintercept = seq(0,3000,500), col = "grey", alpha = 0.3) +
+  geom_col(position = "stack") +
+  labs(x = "", y = "", title = "Gesamtpunkte der Vereine",
+       subtitle = "Saison 24/25 | ohne Torhüter") +
+  scale_x_continuous(breaks = seq(0, 3000, 500), limits = c(0, 3000), expand = c(0,0)) +
+  theme(plot.title = element_text(size = 25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 15, hjust = 0.5),
+        axis.text.x = element_text(size = 13, color = "white"), 
+        axis.text.y = element_text(size = 10, color = "white"),
+        legend.title = element_blank(), 
+        legend.text = element_text(size = 11),
+        legend.spacing = unit(0, "cm"))
+
+ggsave("plots/2425/Teams_Punkte_Position.png", dpi = 400)
+
+
+###### Gesamtpunkte nach Punkten pro 90 Min ######
+
+
+players %>% filter(!is.na(type) & type != "Tor") %>% 
+  group_by(team, type) %>% 
+  summarise(nineties = sum(mins, na.rm = TRUE)/90,
+            points = sum(points)) %>% 
+  group_by(team) %>% mutate(points_all = sum(points)) %>%
+  ggplot(aes(x = points/nineties, y = fct_reorder(team, points_all), fill = type)) +
+  geom_vline(xintercept = seq(0, 30, 5), col = "grey", alpha = 0.3) +
+  geom_col(position = "stack") +
+  labs(x = "Punkte / 90 Minuten", y = "", 
+       title = "Wie haben die Mannschaftsteile nach gespielten Minuten gepunktet?",
+       subtitle = "Saison 24/25 | ohne Torhüter") +
+  scale_x_continuous(breaks = seq(0, 30, 5), limits = c(0,30), expand = c(0,0)) +
+  theme(plot.title = element_text(size = 25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 15, hjust = 0.5),
+        axis.text.x = element_text(size = 10, color = "white"), 
+        axis.text.y = element_text(size = 10, color = "white"),
+        axis.title.x = element_text(size = 13),
+        legend.title = element_blank(), 
+        legend.text = element_text(size = 11),
+        legend.spacing = unit(0, "cm"))
+
+ggsave("plots/2425/Teams_Punkte_p90.png", dpi = 400)
+
+players %>% filter(!is.na(type) & type != "Tor") %>% 
+  group_by(team, type) %>% 
+  summarise(nineties = sum(mins, na.rm = TRUE)/90,
+            points = sum(points)) %>% 
+  group_by(team) %>% mutate(points_all = sum(points)) %>%
+  ggplot(aes(x = points/nineties, y = fct_reorder(team, points_all), fill = type)) +
+  geom_col(position = "fill") +
+  geom_vline(xintercept = c(1/3, 2/3), col = "grey") +
+  labs(x = "", y = "", title = "Vergleich der Mannschaftsteile innerhalb der Vereine",
+       subtitle = "Saison 24/25 | ohne Torhüter") +
+  scale_x_continuous(breaks = seq(0, 1, 1/3), expand = c(0,0), labels = c("0", "1/3", "2/3", "1")) +
+  theme(plot.title = element_text(size = 25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 15, hjust = 0.5),
+        axis.text.x = element_text(size = 13, color = "white"), 
+        axis.text.y = element_text(size = 10, color = "white"),
+        legend.title = element_blank(), 
+        legend.text = element_text(size = 11),
+        legend.spacing = unit(0, "cm"))
+
+ggsave("plots/2425/Teams_Punkte_p90_fill.png", dpi = 400)
+
+
 ####################################################################################################
 ########################### Spieler ###############################################################
 ####################################################################################################
@@ -40,7 +116,7 @@ ggplot(aes(x = points, y = fct_reorder(player, points), fill = type)) +
   geom_col() +
   geom_text(aes(label = player), hjust = 1.1, nudge_y = -0.005, fontface = "bold") +
   geom_text(aes(label = sprintf("%.1f", MW)), hjust = 1.05, nudge_x = +13, fontface = "bold") +
-  labs(x = "", y = "", title = "Gesamtpunkte Spieler nach Position",
+  labs(x = "", y = "", title = "Gesamtpunkte der Topspieler im Vergleich",
        subtitle = "Saison 24/25 | ohne Torhüter | mind. 200 Punkte") +
   scale_x_continuous(breaks = seq(0, 300, 50), limits = c(0, 370), expand = c(0,0)) +
   scale_y_discrete(breaks = NULL) +
@@ -59,10 +135,11 @@ players_ssn %>% filter(points >= 150 & points < 200 & type != "Tor") %>%
   ggplot(aes(x = points, y = fct_reorder(player, points), fill = type)) +
   geom_vline(xintercept = seq(0, 230, 50), linetype = "dotted", col = "grey") +
   geom_col() +
-  geom_text(aes(label = player), hjust = 1.1, nudge_y = -0.005, fontface = "bold") +
-  geom_text(aes(label = sprintf("%.1f", MW)), hjust = 1.05, nudge_x = +10, fontface = "bold") +
-  labs(x = "", y = "", title = "Spieler zwischen 150 & 200 Punkten",
-       subtitle = "Saison 24/25 | ohne Torhüter") +
+  geom_text(aes(label = player), hjust = 1.1, nudge_y = -0.005, fontface = "bold", size = 3) +
+  geom_text(aes(label = sprintf("%.1f", MW)), hjust = 1.05, nudge_x = +6, fontface = "bold", 
+            size = 3) +
+  labs(x = "", y = "", title = "Gesamtpunkte der zweiten Riege im Vergleich",
+       subtitle = "Saison 24/25 | ohne Torhüter | zwischen 150 & 200 Punkten") +
   scale_x_continuous(breaks = seq(0, 230, 50), limits = c(0, 230), expand = c(0,0)) +
   scale_y_discrete(breaks = NULL) +
   theme(plot.title = element_text(size = 25, hjust = 0.5), 
@@ -75,12 +152,13 @@ players_ssn %>% filter(points >= 150 & points < 200 & type != "Tor") %>%
 
 ggsave("plots/2425/Spieler_Punkte_150.png", dpi = 400)
 
-players_ssn %>% filter(points >= 100 & points < 150 & type != "Tor") %>%
+players_ssn %>% filter(points >= 125 & points < 150 & type != "Tor") %>%
   ggplot(aes(x = points, y = fct_reorder(player, points), fill = type)) +
   geom_vline(xintercept = seq(0, 230, 50), linetype = "dotted", col = "grey") +
   geom_col() +
-  geom_text(aes(label = player), hjust = 1.1, nudge_y = -0.005, fontface = "bold") +
-  geom_text(aes(label = sprintf("%.1f", MW)), hjust = 1.05, nudge_x = +10, fontface = "bold") +
+  geom_text(aes(label = player), hjust = 1.1, nudge_y = -0.005, fontface = "bold", size = 2) +
+  geom_text(aes(label = sprintf("%.1f", MW)), hjust = 1.05, nudge_x = +4, fontface = "bold",
+            size = 2) +
   labs(x = "", y = "", title = "Spieler mit mind. 200 Punkten",
        subtitle = "ohne Torhüter | Saison 24/25") +
   scale_x_continuous(breaks = seq(0, 230, 50), limits = c(0, 170), expand = c(0,0)) +
@@ -92,7 +170,6 @@ players_ssn %>% filter(points >= 100 & points < 150 & type != "Tor") %>%
         legend.title = element_blank(), 
         legend.text = element_text(size = 11),
         legend.spacing = unit(0, "cm"))
-
 
 ###### Gesamtpunkte nach Position Boxplot ######
 
@@ -116,22 +193,146 @@ players_ssn %>% filter(!is.na(type) & starts > 0) %>%
   geom_violin(draw_quantiles = c(0.1, 0.5, 0.9)) +
   scale_y_continuous(limits = c(-10, 350))
 
-players_ssn %>% filter(!is.na(type) & starts > 9) %>% 
+players_ssn %>% filter(!is.na(type) & starts > 1) %>% 
   ggplot(aes(x = type, y = points, fill = type)) +
   geom_hline(yintercept = seq(0, 350, 50), linetype = "dotted", col = "grey", alpha = 0.3) +
   geom_violin(draw_quantiles = c(0.1, 0.5, 0.9), scale = "count") +
   geom_jitter(width = 0.1, col = "white") +
   scale_y_continuous(breaks = seq(0, 350, 50)) +
   scale_fill_discrete(guide = "none") +
-  labs(x = "", y = "", title = "Punkteverteilung nach Position",
+  labs(x = "", y = "", title = "Wie verteilen sich die Spieler nach Gesamtpunkten?",
        subtitle = "Saison 24/25 | mind. 1 Startelfeinsatz") +
   theme(plot.title = element_text(size = 25, hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
         axis.text.x = element_text(size = 13, color = "white"), 
         axis.text.y = element_text(size = 10, color = "white"))
 
-ggsave("plots/2425/Punkte_Position_violin.png", dpi = 400)
+ggsave("plots/2425/Spieler_Punkte_violin.png", dpi = 400)
 
+
+###### Spieler nach Punkten pro Marktwert #####
+
+players_ssn %>% filter(points/MW >= 80 & type != "Tor") %>%
+  ggplot(aes(x = points/MW, y = fct_reorder(player, points/MW), fill = type)) +
+  geom_vline(xintercept = seq(0,220,50), linetype = "dotted", col = "grey") +
+  geom_col() +
+  geom_text(aes(label = player), hjust = 1.1, nudge_y = -0.005, fontface = "bold", size = 3) +
+  geom_text(aes(label = sprintf("%.1f", MW)), hjust = 1.05, nudge_x = +6, fontface = "bold",
+            size = 3) +
+  labs(x = "Punkte pro Mio", y = "", 
+       title = "Welche Spieler waren am besten nach Punkten pro Mio?",
+       subtitle = "Saison 24/25 | ohne Torhüter | mind. 80 Punkte pro Mio") +
+  scale_x_continuous(breaks = seq(0,220,50), limits = c(0, 220), expand = c(0,0)) +
+  scale_y_discrete(breaks = NULL) +
+  theme(plot.title = element_text(size = 25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 15, hjust = 0.5),
+        axis.text.x = element_text(size = 10, color = "white"),
+        axis.title.x = element_text(size = 13),
+        legend.title = element_blank(), 
+        legend.text = element_text(size = 11),
+        legend.spacing = unit(0, "cm"))
+
+ggsave("plots/2425/Spieler_PpM_80.png", dpi = 400)
+
+
+players_ssn %>% filter(points/MW < 80 & points/MW >= 60 & type != "Tor") %>%
+  ggplot(aes(x = points/MW, y = fct_reorder(player, points/MW), fill = type)) +
+  geom_vline(xintercept = seq(0,90,50), linetype = "dotted", col = "grey") +
+  geom_col() +
+  geom_text(aes(label = player), hjust = 1.1, nudge_y = -0.005, fontface = "bold", size = 3) +
+  geom_text(aes(label = sprintf("%.1f", MW)), hjust = 1.05, nudge_x = +6, fontface = "bold",
+            size = 3) +
+  labs(x = "Punkte pro Mio", y = "", 
+       title = "Welche Spieler waren am besten nach Punkten pro Mio?",
+       subtitle = "Saison 24/25 | ohne Torhüter | zw. 60 & 80 Punkte pro Mio") +
+  scale_x_continuous(breaks = seq(0,90,50), limits = c(0, 90), expand = c(0,0)) +
+  scale_y_discrete(breaks = NULL) +
+  theme(plot.title = element_text(size = 25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 15, hjust = 0.5),
+        axis.text.x = element_text(size = 10, color = "white"),
+        axis.title.x = element_text(size = 13),
+        legend.title = element_blank(), 
+        legend.text = element_text(size = 11),
+        legend.spacing = unit(0, "cm"))
+
+
+players_ssn %>% filter(!is.na(type) & starts > 0) %>% 
+  ggplot(aes(x = type, y = points/MW, fill = type)) +
+  geom_hline(yintercept = seq(0, 200, 50), linetype = "dotted", col = "grey", alpha = 0.3) +
+  geom_violin(draw_quantiles = c(0.1, 0.5, 0.9), scale = "count") +
+  geom_jitter(width = 0.05, col = "white") +
+  scale_y_continuous(breaks = seq(0, 200, 50)) +
+  scale_fill_discrete(guide = "none") +
+  labs(x = "", y = "", title = "Wie verteilen sich die Spieler nach Punkte pro Mio?",
+       subtitle = "Saison 24/25 | mind. 1 Startelfeinsatz") +
+  theme(plot.title = element_text(size = 25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 15, hjust = 0.5),
+        axis.text.x = element_text(size = 13, color = "white"), 
+        axis.text.y = element_text(size = 10, color = "white"))
+
+ggsave("plots/2425/Spieler_PpM_violin.png", dpi = 400)
+
+###### Spieler nach Punkten pro 90 Min ######
+
+players_ssn %>% filter(points/nineties >= 8 & type != "Tor" & starts > 4) %>%
+  ggplot(aes(x = points/nineties, y = fct_reorder(player, points/nineties), fill = type)) +
+  geom_vline(xintercept = seq(0,16,2), linetype = "dotted", col = "grey") +
+  geom_col() +
+  geom_text(aes(label = player), hjust = 1.1, nudge_y = -0.005, fontface = "bold", size = 3) +
+  geom_text(aes(label = sprintf("%.1f", MW)), hjust = 1.05, nudge_x = +0.4, fontface = "bold",
+            size = 3) +
+  labs(x = "Punkte / 90 Minuten", y = "", 
+       title = "Welche Spieler waren am besten nach Punkten pro Spielzeit?",
+       subtitle = "Saison 24/25 | ohne Torhüter | mind. 5 Startelfeinsätze | mind. 8 Punkte p90") +
+  scale_x_continuous(breaks = seq(0,16,2), limits = c(0,16), expand = c(0,0)) +
+  scale_y_discrete(breaks = NULL) +
+  theme(plot.title = element_text(size = 25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 15, hjust = 0.5),
+        axis.text.x = element_text(size = 10, color = "white"),
+        axis.title.x = element_text(size = 13),
+        legend.title = element_blank(), 
+        legend.text = element_text(size = 11),
+        legend.spacing = unit(0, "cm"))
+
+ggsave("plots/2425/Spieler_Pp90_8.png", dpi = 400)
+
+
+players_ssn %>% filter(points/nineties >= 7 & points/nineties < 8 & type != "Tor" & starts > 4) %>%
+  ggplot(aes(x = points/nineties, y = fct_reorder(player, points/nineties), fill = type)) +
+  geom_vline(xintercept = seq(0,9,2), linetype = "dotted", col = "grey") +
+  geom_col() +
+  geom_text(aes(label = player), hjust = 1.1, nudge_y = -0.005, fontface = "bold", size = 2) +
+  geom_text(aes(label = sprintf("%.1f", MW)), hjust = 1.05, nudge_x = +0.2, fontface = "bold",
+            size = 2) +
+  labs(x = "Punkte / 90 Minuten", y = "", 
+       title = "Welche Spieler waren am besten nach Punkten pro Spielzeit?",
+       subtitle = "Saison 24/25 | ohne Torhüter | mind. 5 Startelfeinsätze | Punkte p90 zw. 7 & 8") +
+  scale_x_continuous(breaks = seq(0,9,2), limits = c(0,9), expand = c(0,0)) +
+  scale_y_discrete(breaks = NULL) +
+  theme(plot.title = element_text(size = 25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 15, hjust = 0.5),
+        axis.text.x = element_text(size = 10, color = "white"),
+        axis.title.x = element_text(size = 13),
+        legend.title = element_blank(), 
+        legend.text = element_text(size = 11),
+        legend.spacing = unit(0, "cm"))
+
+
+players_ssn %>% filter(!is.na(type) & starts > 4) %>% 
+  ggplot(aes(x = type, y = points/nineties, fill = type)) +
+  geom_hline(yintercept = seq(0, 16, 2), linetype = "dotted", col = "grey", alpha = 0.3) +
+  geom_violin(draw_quantiles = c(0.1, 0.5, 0.9), scale = "count") +
+  geom_jitter(width = 0.05, col = "white") +
+  scale_y_continuous(breaks = seq(0, 16, 2)) +
+  scale_fill_discrete(guide = "none") +
+  labs(x = "", y = "", title = "Wie verteilen sich die Spieler nach Punkte pro 90 Min?",
+       subtitle = "Saison 24/25 | mind. 5 Startelfeinsätze") +
+  theme(plot.title = element_text(size = 25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 15, hjust = 0.5),
+        axis.text.x = element_text(size = 13, color = "white"), 
+        axis.text.y = element_text(size = 10, color = "white"))
+
+ggsave("plots/2425/Spieler_Pp90_violin.png", dpi = 400)
 
 ###### Spieler nach Art der Punkte ######
 
@@ -148,22 +349,14 @@ players_ssn %>% filter(type != "Tor" & points >= 150 & points < 200) %>%
 
 ###### Spieler nach Gesamtpunkten & Marktwert #######
 
-players_ssn %>% filter(type != "Tor") %>%
-  ggplot(aes(x = points, y = MW, col = type)) +
-  geom_point() +
-  geom_abline(intercept = 0, slope = 0.001*(2^(3:8)), color="grey", 
-              linetype="dashed") +
-  scale_x_continuous(expand = c(0,0)) +
-  geom_text_repel(aes(label = player))
+
 
 
 players_ssn %>% filter(type != "Tor") %>%
-  mutate(PpM = points/MW) %>% 
-  ggplot(aes(x = points, y = PpM, col = type)) +
+  ggplot(aes(x = points, y = points/MW, col = type)) +
   geom_point() +
-  geom_vline(xintercept = mean(points), linetype = "dashed") +
   geom_text_repel(aes(label = player)) +
-  labs(x = "Punkte", y = "Punkte pro Mio", title = "Effizienzvergleich",
+  labs(x = "Punkte", y = "Punkte pro Mio", title = "Effizienz nach Punkte pro Mio",
        subtitle = "Saison 24/25 | ohne Torhüter") +
   scale_x_continuous(breaks = seq(0, 380, 50), limits = c(0, 380), expand = c(0,0)) +
   scale_y_continuous(breaks = seq(0,220,50), limits= c(0,220), expand = c(0,0)) +
@@ -180,14 +373,87 @@ players_ssn %>% filter(type != "Tor") %>%
 
 ggsave("plots/2425/Spieler_Punkte_PpM.png", dpi = 400)
 
-players_ssn %>% filter(type != "Tor") %>%
-  mutate(PpM = points/MW) %>% 
-  ggplot(aes(x = MW, y = PpM, col = type)) +
+players_ssn %>% filter(type != "Tor" & starts > 4) %>%
+  ggplot(aes(x = points, y = points/nineties, col = type)) +
   geom_point() +
+  geom_vline(xintercept = mean(points), linetype = "dashed") +
+  geom_text_repel(aes(label = player)) +
+  labs(x = "Punkte", y = "Punkte pro Mio", title = "Effizienz nach Punkte pro 90 Min",
+       subtitle = "Saison 24/25 | ohne Torhüter | mind. 5 Startelfeinsätze") +
+  scale_x_continuous(breaks = seq(0, 380, 50), limits = c(0, 380), expand = c(0,0)) +
+  scale_y_continuous(breaks = seq(0,16,2), limits= c(0,16), expand = c(0,0)) +
+  theme(plot.title = element_text(size = 25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 15, hjust = 0.5),
+        axis.title.x = element_text(size = 13),
+        axis.title.y = element_text(size = 13),
+        axis.text.x = element_text(size = 10, color = "white"), 
+        axis.text.y = element_text(size = 10, color = "white"),
+        legend.title = element_blank(), 
+        legend.position = c(0.9, 0.2),
+        legend.text = element_text(size = 11),
+        legend.spacing = unit(0, "cm"))
+
+ggsave("plots/2425/Spieler_Punkte_Pp90.png", dpi = 400)
+
+players_ssn %>% filter(type != "Tor") %>%
+  ggplot(aes(x = MW, y = points/MW, col = type)) +
+  geom_point() +
+  geom_text_repel(aes(label = player))
+
+
+players_ssn %>% filter(type != "Tor") %>%
+  ggplot(aes(x = points, y = MW, col = type)) +
+  geom_point() +
+  geom_abline(intercept = 0, slope = 0.001*(2^(3:8)), color="grey", 
+              linetype="dashed") +
+  scale_x_continuous(expand = c(0,0)) +
   geom_text_repel(aes(label = player))
   
 
 
+
+
+###### Spieler nach Noten & Verein ######
+
+players_start_ssn %>% filter(!is.na(type) & type != "Tor" & starts > 9) %>% 
+  ggplot(aes(x = grade_mean, y = team, col = type, 
+             text = paste(player, "\nNote: ", grade_mean))) +
+  geom_point() +
+  labs(x = "", y = "", title = "Wie wurden Spieler der Vereine benotet?",
+       subtitle = "Saison 24/25 | ohne Torhüter | mind. 10 Startelfeinsätze") +
+  scale_x_continuous(breaks = seq(2.5, 4.5, 0.5), limits = c(2.3, 4.7), expand = c(0,0)) +
+  scale_y_discrete(limits = rev) +
+  theme(plot.title = element_text(size = 25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 15, hjust = 0.5),
+        axis.text.x = element_text(size = 13, color = "white"), 
+        axis.text.y = element_text(size = 10, color = "white"),
+        legend.title = element_blank(), 
+        legend.text = element_text(size = 11),
+        legend.spacing = unit(0, "cm"))
+
+ggsave("plots/2425/Teams_Spieler_Note.png", dpi = 400)
+
+
+players_start_ssn %>% filter(!is.na(type) & type != "Tor" & starts > 9) %>% 
+  ggplot(aes(x = grade_mean, y = team, col = type, 
+             text = paste(player, "\nNote: ", grade_mean))) +
+  geom_point() +
+  geom_text_repel(aes(label = player), max.overlaps = 6, vjust = 0.5, size = 2.5) +
+  labs(x = "", y = "", title = "Welche Spieler sind durch ihre Noten herausgestochen?",
+       subtitle = "Saison 24/25 | ohne Torhüter | mind. 10 Startelfeinsätze") +
+  scale_x_continuous(breaks = seq(2.5, 4.5, 0.5), limits = c(2.3, 4.7), expand = c(0,0)) +
+  scale_y_discrete(limits = rev) +
+  theme(plot.title = element_text(size = 25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 15, hjust = 0.5),
+        axis.text.x = element_text(size = 13, color = "white"), 
+        axis.text.y = element_text(size = 10, color = "white"),
+        legend.title = element_blank(), 
+        legend.text = element_text(size = 11),
+        legend.spacing = unit(0, "cm"))
+
+ggsave("plots/2425/Teams_Spieler_Note_labeled.png", dpi = 400)
+
+ggplotly(tooltip = "text")
 
 ###### das Ganze nochmal nur mit benoteten Startelfeinsätzen ######
 
@@ -403,96 +669,7 @@ players_ssn %>% filter(mins < 900 & mins > 399 & npxG_p90 >= 0.3) %>%
 
 
 
-####################################################################################################
-########################### Teams ##################################################################
-####################################################################################################
 
-###### Gesamtpunkte nach Position #######
-
-players %>% filter(!is.na(type) & type != "Tor") %>% 
-  group_by(team, type) %>% 
-  summarise(points = sum(points)) %>% 
-  group_by(team) %>% mutate(points_all = sum(points)) %>%
-  ggplot(aes(x = points, y = fct_reorder(team, points_all), fill = type)) +
-  geom_vline(xintercept = seq(0,3000,500), col = "grey", alpha = 0.3) +
-  geom_col(position = "stack") +
-  labs(x = "", y = "", title = "Gesamtpunkte Vereine",
-       subtitle = "Saison 24/25 | ohne Torhüter") +
-  scale_x_continuous(breaks = seq(0, 3000, 500), limits = c(0, 3000), expand = c(0,0)) +
-  theme(plot.title = element_text(size = 25, hjust = 0.5), 
-        plot.subtitle = element_text(size = 15, hjust = 0.5),
-        axis.text.x = element_text(size = 13, color = "white"), 
-        axis.text.y = element_text(size = 10, color = "white"),
-        legend.title = element_blank(), 
-        legend.text = element_text(size = 11),
-        legend.spacing = unit(0, "cm"))
-
-ggsave("plots/2425/Teams_Punkte_Position.png", dpi = 400)
-
-
-players %>% filter(!is.na(type) & type != "Tor") %>% 
-  group_by(team, type) %>% 
-  summarise(mins = sum(mins, na.rm = TRUE),
-            points = sum(points)) %>% 
-  group_by(team) %>% mutate(points_all = sum(points)) %>%
-  ggplot(aes(x = points/mins, y = fct_reorder(team, points_all), fill = type)) +
-  geom_vline(xintercept = seq(0, 0.3, 0.05), col = "grey", alpha = 0.3) +
-  geom_col(position = "stack") +
-  labs(x = "", y = "", title = "Gesamtpunkte Vereine nach Spielzeit (absolut)",
-       subtitle = "Saison 24/25 | ohne Torhüter") +
-  scale_x_continuous(breaks = 0, expand = c(0,0)) +
-  theme(plot.title = element_text(size = 25, hjust = 0.5), 
-        plot.subtitle = element_text(size = 15, hjust = 0.5),
-        axis.text.x = element_text(size = 13, color = "#102a43"), 
-        axis.text.y = element_text(size = 10, color = "white"),
-        legend.title = element_blank(), 
-        legend.text = element_text(size = 11),
-        legend.spacing = unit(0, "cm"))
-
-ggsave("plots/2425/Teams_Punkte_Position_mins.png", dpi = 400)
-
-players %>% filter(!is.na(type) & type != "Tor") %>% 
-  group_by(team, type) %>% 
-  summarise(mins = sum(mins, na.rm = TRUE),
-            points = sum(points)) %>% 
-  group_by(team) %>% mutate(points_all = sum(points)) %>%
-  ggplot(aes(x = points/mins, y = fct_reorder(team, points_all), fill = type)) +
-  geom_col(position = "fill") +
-  geom_vline(xintercept = c(1/3, 2/3), col = "grey") +
-  labs(x = "", y = "", title = "Gesamtpunkte Vereine nach Spielzeit (relativ)",
-       subtitle = "Saison 24/25 | ohne Torhüter") +
-  scale_x_continuous(breaks = seq(0, 1, 1/3), expand = c(0,0), labels = c("0", "1/3", "2/3", "1")) +
-  theme(plot.title = element_text(size = 25, hjust = 0.5), 
-        plot.subtitle = element_text(size = 15, hjust = 0.5),
-        axis.text.x = element_text(size = 13, color = "white"), 
-        axis.text.y = element_text(size = 10, color = "white"),
-        legend.title = element_blank(), 
-        legend.text = element_text(size = 11),
-        legend.spacing = unit(0, "cm"))
-
-ggsave("plots/2425/Teams_Punkte_Position_mins_fill.png", dpi = 400)
-
-
-players_start_ssn %>% filter(!is.na(type) & type != "Tor" & starts > 9) %>% 
-  ggplot(aes(x = grade_mean, y = team, col = type, 
-         text = paste(player, "\nNote: ", grade_mean))) +
-  geom_point() +
-  geom_text_repel(aes(label = player), max.overlaps = 6, vjust = 0.5, size = 2.5) +
-  labs(x = "", y = "", title = "Notenschnitt Spieler nach Verein",
-       subtitle = "Saison 24/25 | ohne Torhüter | mind. 10 Startelfeinsätze") +
-  scale_x_continuous(breaks = seq(2.5, 4.5, 0.5), limits = c(2.3, 4.7), expand = c(0,0)) +
-  scale_y_discrete(limits = rev) +
-  theme(plot.title = element_text(size = 25, hjust = 0.5), 
-        plot.subtitle = element_text(size = 15, hjust = 0.5),
-        axis.text.x = element_text(size = 13, color = "white"), 
-        axis.text.y = element_text(size = 10, color = "white"),
-        legend.title = element_blank(), 
-        legend.text = element_text(size = 11),
-        legend.spacing = unit(0, "cm"))
-
-ggsave("plots/2425/Teams_Spieler_Note.png", dpi = 400)
-
-ggplotly(tooltip = "text")
 
 
 ###### Vergleich Noten Heim vs Auswärts ######
